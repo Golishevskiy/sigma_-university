@@ -1,0 +1,17 @@
+commit efa3b6f82ae9abb15613dd150ea10d6f4b8eb3bc (HEAD -> HW-01-intro-ios)
+Author: Petro Golishevskiy <golishevskiypetro@ukr.net>
+Date:   Sat Mar 20 12:23:06 2021 +0200
+
+    added second file
+
+commit 3afc961ebfb7c72e55ec0caf3de483961792deb6
+Author: Petro Golishevskiy <golishevskiypetro@ukr.net>
+Date:   Sat Mar 20 12:21:55 2021 +0200
+
+    added first file
+
+commit 3b17aa313fb863583a85aba8de3512a00e30da6a (master)
+Author: Petro Golishevskiy <golishevskiypetro@ukr.net>
+Date:   Sat Mar 20 12:08:44 2021 +0200
+
+    init commit
