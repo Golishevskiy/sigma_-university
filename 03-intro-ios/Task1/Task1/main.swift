@@ -36,7 +36,7 @@ func enterNumber() {
     if let selected = readLine() {
         didSelect = selected
     }
-
+    
     switch didSelect {
     case "1": print("\(inputName) \(hello)")
     case "2": print("\(hello) \(inputName)")
