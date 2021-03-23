@@ -1,0 +1,17 @@
+commit f252e0e2ccf55c28fd1c7f49e50e5fb4773c8901 (HEAD -> HW-02-intro-ios)
+Author: Petro Golishevskiy <golishevskiypetro@ukr.net>
+Date:   Sat Mar 20 13:21:26 2021 +0200
+
+    added second file pdf
+
+commit 8ac4b73c95b599c02c23366e2c8876456eae2ac5
+Author: Petro Golishevskiy <golishevskiypetro@ukr.net>
+Date:   Sat Mar 20 13:20:45 2021 +0200
+
+    added first file pdf
+
+commit 3b17aa313fb863583a85aba8de3512a00e30da6a (origin/master, master)
+Author: Petro Golishevskiy <golishevskiypetro@ukr.net>
+Date:   Sat Mar 20 12:08:44 2021 +0200
+
+    init commit
