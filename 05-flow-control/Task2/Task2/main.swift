@@ -43,19 +43,22 @@ func selectionSort(anArray array: [Int]) -> [Int] {
     return sorted
 }
 
-func sort(anArray array: [Int], withMethod method: Int) {
+func sort(anArray array: [Int], withMethod method: Int) -> [Int] {
     // 1 - bubble
     // 2 - selection
     switch method {
     case 1:
         print("sorted by bubble")
-        print(bubbleSort(anArray: array))
+        let result = bubbleSort(anArray: array)
+        return result
     case 2:
         print("sorted by selection")
-        print(selectionSort(anArray: array))
+        let result = selectionSort(anArray: array)
+        return result
     default:
-        print("Wrong input.\n Select sort method:\n 1 - bubble\n 2 - selection")
+        print("The array is not sorted.\n Select sort method:\n 1 - bubble\n 2 - selection")
+        return array
     }
 }
 
-sort(anArray: [10, 4, 45, 10, 3534, 332, 322], withMethod: 2)
+print(sort(anArray: [10, 4, 45, 10, 3534, 332, 322], withMethod: 0))
