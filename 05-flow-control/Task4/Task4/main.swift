@@ -9,8 +9,7 @@ import Foundation
 
 func analysis(str: String) {
     var stringArray = str.map { String($0) }
-
-    str.enumerated().elementsEqual("", by: <#T##(EnumeratedSequence<String>.Iterator.Element, Sequence.Element) throws -> Bool#>)
+    
 }
 
-analysis(str: "jkshdfks sdklfdweaa")
+analysis(str: "abcdcfa")
