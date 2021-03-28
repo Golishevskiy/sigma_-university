@@ -21,36 +21,9 @@ import Foundation
  лише введення вхідних даних.
  */
 
-func calculate() {
-    let operands = input()
-    print("please select an operator:\n minus \"-\"\n plus \"+\"\n multiplication \"*\"\n raise a power \"^\"")
-    let operation = readLine()!
-    
-    switch operation {
-    case "-":
-        let result = operands[0] - operands[1]
-        print("\(operands[0]) - \(operands[1]) = \(result)")
-        
-    case "+":
-        let result = operands[0] + operands[1]
-        print("\(operands[0]) + \(operands[1]) = \(result)")
-        
-    case "*":
-        let result = operands[0] * operands[1]
-        print("\(operands[0]) * \(operands[1]) = \(result)")
-        
-    case "^":
-        var result = operands[0]
-        for i in 0..<operands[1] - 1 {
-            result *= operands[0]
-        }
-        print("number \(operands[0]) raised by power of \(operands[1]) = \(result)")
-        
-    default:
-        print("wrong operator")
-    }
-
-    
+func calculate(operands: () -> [Int], operator: ([Int]) -> Int) {
+    let operand = operands()
+    operators(operand: operand)
 }
 
 func input() -> [Int] {
@@ -75,4 +48,35 @@ func input() -> [Int] {
     return array
 }
 
-calculate()
+func operators(operand: [Int]) -> Int{
+    
+    print("please select an operator:\n minus \"-\"\n plus \"+\"\n multiplication \"*\"\n raise a power \"^\"")
+    let operation = readLine()!
+    
+    switch operation {
+    case "-":
+        let result = operand[0] - operand[1]
+        print("\(operand[0]) - \(operand[1]) = \(result)")
+        return result
+    case "+":
+        let result = operand[0] + operand[1]
+        print("\(operand[0]) + \(operand[1]) = \(result)")
+        return result
+    case "*":
+        let result = operand[0] * operand[1]
+        print("\(operand[0]) * \(operand[1]) = \(result)")
+        return result
+    case "^":
+        var result = operand[0]
+        for _ in 0..<operand[1] - 1 {
+            result *= operand[0]
+        }
+        print("number \(operand[0]) raised by power of \(operand[1]) = \(result)")
+        return result
+    default:
+        print("wrong operator")
+        return 0
+    }
+}
+
+calculate(operands: input, operator: operators(operand:))
