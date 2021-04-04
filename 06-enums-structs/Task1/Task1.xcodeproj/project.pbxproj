@@ -12,6 +12,10 @@
 		AB40516426187CCA00E935E0 /* Point+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB40516326187CCA00E935E0 /* Point+Distance.swift */; };
 		AB40516726187D0C00E935E0 /* Point+UserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB40516626187D0C00E935E0 /* Point+UserType.swift */; };
 		AB40516B26187D8500E935E0 /* Point+initMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB40516A26187D8500E935E0 /* Point+initMethods.swift */; };
+		AB40516E26188F1A00E935E0 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB40516D26188F1A00E935E0 /* Point.swift */; };
+		AB4051722618906600E935E0 /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4051712618906600E935E0 /* Figure.swift */; };
+		AB4051752619126500E935E0 /* Figure+Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4051742619126500E935E0 /* Figure+Area.swift */; };
+		AB4051782619DBFA00E935E0 /* FigureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4051772619DBFA00E935E0 /* FigureType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +37,10 @@
 		AB40516326187CCA00E935E0 /* Point+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Point+Distance.swift"; sourceTree = "<group>"; };
 		AB40516626187D0C00E935E0 /* Point+UserType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Point+UserType.swift"; sourceTree = "<group>"; };
 		AB40516A26187D8500E935E0 /* Point+initMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Point+initMethods.swift"; sourceTree = "<group>"; };
+		AB40516D26188F1A00E935E0 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
+		AB4051712618906600E935E0 /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
+		AB4051742619126500E935E0 /* Figure+Area.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Figure+Area.swift"; sourceTree = "<group>"; };
+		AB4051772619DBFA00E935E0 /* FigureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				AB40515526187AEE00E935E0 /* Task1 */,
+				AB40517026188F7B00E935E0 /* Model */,
 				AB40515E26187B1F00E935E0 /* Extensions */,
 				AB40515426187AEE00E935E0 /* Products */,
 			);
@@ -67,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				AB40515626187AEE00E935E0 /* main.swift */,
-				AB40515F26187B9000E935E0 /* CoordinateSystem.swift */,
 			);
 			path = Task1;
 			sourceTree = "<group>";
@@ -78,8 +86,21 @@
 				AB40516326187CCA00E935E0 /* Point+Distance.swift */,
 				AB40516626187D0C00E935E0 /* Point+UserType.swift */,
 				AB40516A26187D8500E935E0 /* Point+initMethods.swift */,
+				AB4051742619126500E935E0 /* Figure+Area.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AB40517026188F7B00E935E0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AB40516D26188F1A00E935E0 /* Point.swift */,
+				AB4051712618906600E935E0 /* Figure.swift */,
+				AB4051772619DBFA00E935E0 /* FigureType.swift */,
+				AB40515F26187B9000E935E0 /* CoordinateSystem.swift */,
+			);
+			name = Model;
+			path = Task1;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +162,10 @@
 			files = (
 				AB40516026187B9000E935E0 /* CoordinateSystem.swift in Sources */,
 				AB40516726187D0C00E935E0 /* Point+UserType.swift in Sources */,
+				AB4051752619126500E935E0 /* Figure+Area.swift in Sources */,
+				AB4051722618906600E935E0 /* Figure.swift in Sources */,
+				AB4051782619DBFA00E935E0 /* FigureType.swift in Sources */,
+				AB40516E26188F1A00E935E0 /* Point.swift in Sources */,
 				AB40516426187CCA00E935E0 /* Point+Distance.swift in Sources */,
 				AB40516B26187D8500E935E0 /* Point+initMethods.swift in Sources */,
 				AB40515726187AEE00E935E0 /* main.swift in Sources */,
