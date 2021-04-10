@@ -7,10 +7,10 @@
 
 import Foundation
 
-infix operator ~~
+infix operator ~~ : TildaOperatorPrecedence
 
-precedencegroup CustomOperatorPrecedence {
-    higherThan: MultiplicationPrecedence
+precedencegroup TildaOperatorPrecedence {
+    higherThan: BitwiseShiftPrecedence
 }
 
 enum Operation {
@@ -18,11 +18,24 @@ enum Operation {
 }
 
 class Fraction {
-    var numerator: Int
-    var denominator: Int
+    
+    var numerator: Int {
+        didSet {
+            self.decimal = toDecimal
+        }
+    }
+    
+    var denominator: Int {
+        didSet {
+            self.decimal = toDecimal
+        }
+    }
+    
+    var decimal = 0.0
     lazy var multiplyBy2 = multiply(by: 2)
     lazy var multiplyBy3 = multiply(by: 3)
     lazy var invert = toInvert()
+    
     
     var toDecimal: Double {
         return Double(numerator) / Double(denominator)
@@ -39,6 +52,13 @@ class Fraction {
     init(numerator n: Int, denominator d: Int) {
         self.numerator = n
         self.denominator = d
+        self.decimal = self.toDecimal
+    }
+    
+    convenience init(decimal: Double) {
+        self.decimal = decimal
+        
+        self.init(numerator: Int, denominator: Int)
     }
     
     subscript(index: String) -> Int? {
@@ -83,11 +103,32 @@ class Fraction {
         let result = """
                         numerator = \(self.numerator)
                         denominator = \(self.denominator)
-                        convert to decimal = \(self.toDecimal)
+                        decimal = \(self.decimal)
                         multiplyBy2 = \(self.multiplyBy2.description)
                         multiplyBy3 = \(self.multiplyBy3.description)
                       """
         return result
+    }
+    
+    static func toFraction(decimal: Double) -> (n: Int, d: Int) {
+        print("toFraction")
+        var n = decimal
+        var d = 1
+        
+        while n.truncatingRemainder(dividingBy: 1.0) != 0 {
+            n *= 10
+            d *= 10
+            print("while")
+        }
+        
+        let num = Int(n)
+        let den = Int(d)
+        print(num)
+        print(den)
+        
+        let divider = 2
+        
+        return (num / divider, den / divider)
     }
     
     private func multiply(by multiplier: Int) -> Fraction {
@@ -108,11 +149,15 @@ class Fraction {
     }
     
     func add(to fraction: Fraction) -> Fraction {
-        return additionOrSubtraction(first: self, second: fraction, operation: .plus)
+        return additionOrSubtraction(first: self,
+                                     second: fraction,
+                                     operation: .plus)
     }
     
     func subtract(from fraction: Fraction) -> Fraction {
-        return additionOrSubtraction(first: self, second: fraction, operation: .minus)
+        return additionOrSubtraction(first: self,
+                                     second: fraction,
+                                     operation: .minus)
     }
     
     func GreaterThan(fraction: Fraction) -> Bool {
@@ -134,7 +179,9 @@ class Fraction {
 
 // extension
  extension Fraction {
-    private func additionOrSubtraction(first: Fraction, second: Fraction, operation: Operation) -> Fraction {
+    private func additionOrSubtraction(first: Fraction,
+                                       second: Fraction,
+                                       operation: Operation) -> Fraction {
         let newFirst = Fraction(numerator: first.numerator * second.denominator,
                                 denominator: first.denominator * second.denominator)
         
@@ -169,7 +216,7 @@ class Fraction {
         return Fraction(numerator: self.denominator, denominator: self.numerator)
     }
 }
-
+/*
 let number = Fraction(numerator: 10, denominator: 7)
 let number1 = Fraction(numerator: 1, denominator: 3)
 
@@ -210,4 +257,34 @@ print(number.NotEqual(to: number1))
 // Описати власний infix оператор »~~».Пріоритет - найвищий
 print((number~~number1).description)
 
-// 
+
+*/
+//
+
+let number = Fraction(numerator: 1, denominator: 2)
+print(number.descriptionObject)
+let number1 = Fraction(numerator: 2, denominator: 3)
+print(number1.descriptionObject)
+
+number.numerator = 3
+print(number.descriptionObject)
+
+print("********")
+number.decimal = 2.0
+
+print(number.descriptionObject)
+//number ~~ number1
+//print(number.descriptionObject)
+//number.decimal = 0.75
+//
+//print(number.descriptionObject)
+//print("_---------__-------__------_-----")
+//number.decimal = 1
+//
+//print(number.descriptionObject)
+//print("_---------__-------__------_-----")
+
+
+
+
+
