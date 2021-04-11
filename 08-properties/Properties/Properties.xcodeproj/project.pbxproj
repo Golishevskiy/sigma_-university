@@ -10,6 +10,7 @@
 		AB0BB03C261D0D6900B93387 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0BB03B261D0D6900B93387 /* main.swift */; };
 		ABA5E678261F103D006399A7 /* Fraction+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA5E677261F103D006399A7 /* Fraction+Init.swift */; };
 		ABA5E67B2620584B006399A7 /* Fraction+add+subtract.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA5E67A2620584B006399A7 /* Fraction+add+subtract.swift */; };
+		ABF850B0262360C000630424 /* Fraction+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF850AF262360C000630424 /* Fraction+Subscript.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,7 @@
 		AB0BB03B261D0D6900B93387 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		ABA5E677261F103D006399A7 /* Fraction+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fraction+Init.swift"; sourceTree = "<group>"; };
 		ABA5E67A2620584B006399A7 /* Fraction+add+subtract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fraction+add+subtract.swift"; sourceTree = "<group>"; };
+		ABF850AF262360C000630424 /* Fraction+Subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Fraction+Subscript.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 			children = (
 				AB0BB03B261D0D6900B93387 /* main.swift */,
 				ABA5E677261F103D006399A7 /* Fraction+Init.swift */,
+				ABF850AF262360C000630424 /* Fraction+Subscript.swift */,
 				ABA5E67A2620584B006399A7 /* Fraction+add+subtract.swift */,
 			);
 			path = Properties;
@@ -128,6 +131,7 @@
 				AB0BB03C261D0D6900B93387 /* main.swift in Sources */,
 				ABA5E67B2620584B006399A7 /* Fraction+add+subtract.swift in Sources */,
 				ABA5E678261F103D006399A7 /* Fraction+Init.swift in Sources */,
+				ABF850B0262360C000630424 /* Fraction+Subscript.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
