@@ -7,8 +7,11 @@
 
 import Foundation
 
-class Seller: Worker {
-    
+protocol SellDoable {
+    func sellSomething()
+}
+
+class Seller: Worker, SellDoable {
     override init(name: String,
                   lastName: String,
                   salary: Int,
@@ -16,7 +19,8 @@ class Seller: Worker {
                   inWorkDate: UserDate,
                   type: TypeWorker,
                   married: Bool,
-                  higherEducation: Bool) {
+                  higherEducation: Bool,
+                  experience: Int?) {
         super.init(name: name,
                    lastName: lastName,
                    salary: salary,
@@ -24,6 +28,10 @@ class Seller: Worker {
                    inWorkDate: inWorkDate,
                    type: type,
                    married: married,
-                   higherEducation: higherEducation)
+                   higherEducation: higherEducation, experience: experience)
+    }
+    
+    func sellSomething() {
+        print("\(self.firstName) sold a lot of fish")
     }
 }

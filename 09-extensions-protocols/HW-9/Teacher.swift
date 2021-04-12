@@ -20,7 +20,8 @@ class Teacher: Worker, CanTeach {
                   inWorkDate: UserDate,
                   type: TypeWorker,
                   married: Bool,
-                  higherEducation: Bool) {
+                  higherEducation: Bool,
+                  experience: Int?) {
         super.init(name: name,
                    lastName: lastName,
                    salary: salary,
@@ -28,7 +29,8 @@ class Teacher: Worker, CanTeach {
                    inWorkDate: inWorkDate,
                    type: type,
                    married: married,
-                   higherEducation: higherEducation)
+                   higherEducation: higherEducation,
+                   experience: experience)
     }
     
     func toTeach() {

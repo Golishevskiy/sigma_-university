@@ -7,14 +7,14 @@
 
 import Foundation
 
+enum TypeWorker {
+    case fisherman
+    case teacher
+    case driver
+    case seller
+}
+
 class Worker {
-    enum TypeWorker {
-        case fisherman
-        case teacher
-        case driver
-        case seller
-    }
-    
     var firstName: String
     var lastName: String
     var salary: Int
@@ -23,7 +23,11 @@ class Worker {
     var type: TypeWorker
     var married: Bool
     var higherEducation: Bool
-    
+    let currentYear = 2021
+    var experience = 0
+    var age: Int {
+        return currentYear - self.dateOfBirth.year
+    }
     init(name: String,
          lastName: String,
          salary: Int,
@@ -31,7 +35,8 @@ class Worker {
          inWorkDate: UserDate,
          type: TypeWorker,
          married: Bool,
-         higherEducation: Bool) {
+         higherEducation: Bool,
+         experience: Int?) {
         self.firstName = name
         self.lastName = lastName
         self.salary = salary
@@ -40,6 +45,7 @@ class Worker {
         self.type = type
         self.married = married
         self.higherEducation = higherEducation
+        self.experience = experience ?? 0
     }
     
     func sayHello() {
