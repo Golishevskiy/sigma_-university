@@ -6,11 +6,27 @@
 //
 
 import Foundation
+import Swift
 
 infix operator ~~ : TildaOperatorPrecedence
+infix operator +  : AdditionPrecedence
+infix operator -  : AdditionPrecedence
+infix operator *  : MultiplicationPrecedence
+infix operator /  : MultiplicationPrecedence
 
 precedencegroup TildaOperatorPrecedence {
-    higherThan: BitwiseShiftPrecedence
+    higherThan: MultiplicationPrecedence
+}
+
+precedencegroup AdditionOperatorPrecedence {
+    associativity: left
+    lowerThan: RangeFormationPrecedence
+
+}
+
+precedencegroup MultiplicationOperatorPrecedence {
+    associativity: left
+    higherThan: AdditionOperatorPrecedence
 }
 
 enum Operation {
@@ -19,39 +35,70 @@ enum Operation {
 
 class Fraction {
     
-    var numerator: Int {
-        willSet(newValue) {
-            if newValue != self.numerator {
+    var numerator: Int = 0 {
+        didSet {
+            if oldValue != numerator {
                 self.decimal = toDecimal
             }
         }
     }
     
-    var denominator: Int {
-        willSet(newValue) {
-            if newValue != self.denominator {
+    var denominator: Int = 0 {
+        didSet {
+            if oldValue != denominator {
                 self.decimal = toDecimal
             }
         }
     }
-    
-    var decimal: Double {
-        willSet(newValue) {
-            if newValue != self.decimal {
-                let value1 = toFraction(decimal: self.decimal)
-                self.numerator = value1.n
-                self.denominator = value1.d
+
+    var decimal: Double = 0.0 {
+            didSet {
+                if oldValue != decimal {
+                    let value1 = toFraction(decimal: self.decimal)
+                    self.numerator = value1.n
+                    self.denominator = value1.d
+                }
             }
         }
-    }
     
     lazy var multiplyBy2 = multiply(by: 2)
     lazy var multiplyBy3 = multiply(by: 3)
     lazy var invert = toInvert()
     
     var toDecimal: Double {
-        return Double(numerator) / Double(denominator)
+        let dec = Double(numerator) / Double(denominator)
+        return Double(round(100*dec)/100)
     }
+    
+    subscript(index: Int) -> Int? {
+        get {
+            switch index {
+            case 0: return self.numerator
+            case 1: return self.denominator
+            default:
+                return nil
+            }
+        }
+//        set(newValue) {
+//            guard let value = newValue else { return }
+//            switch index {
+//            case 0:
+//                self.numerator = value
+//            case 1:
+//                self.denominator = value
+//            default:
+//                print("index out of range")
+//            }
+//        }
+    }
+    
+//    subscript(index: String) -> Double? {
+//        if index == "d" {
+//            return self.toDecimal
+//        } else {
+//            return nil
+//        }
+//    }
     
     var description: String {
         return toString()
@@ -64,22 +111,36 @@ class Fraction {
     init(numerator n: Int, denominator d: Int) {
         self.numerator = n
         self.denominator = d
-        self.decimal = 0.0
         self.decimal = self.toDecimal
     }
     
     init(decimal: Double) {
         self.decimal = decimal
-        self.numerator = 0
-        self.denominator = 0
-        let result = toFraction(decimal: decimal)
+        let result = toFraction(decimal: self.decimal)
         self.numerator = result.n
         self.denominator = result.d
     }
     
     static func ~~(lhs: Fraction, rhs: Fraction) -> Fraction {
-        return lhs.invert.add(to: rhs.invert)
+        return lhs.add(to: rhs)
     }
+    
+    static func + (lhs: Fraction, rhs: Fraction) -> Fraction {
+        return lhs.add(to: rhs)
+    }
+    
+    static func - (lhs: Fraction, rhs: Fraction) -> Fraction {
+        return lhs.subtract(from: rhs)
+    }
+    
+    static func * (lhs: Fraction, rhs: Fraction) -> Fraction {
+        return lhs.multiply(by: rhs)
+    }
+    
+    static func / (lhs: Fraction, rhs: Fraction) -> Fraction {
+        return lhs.divide(by: rhs)
+    }
+    
     
     private func toString() -> String {
         return "\(self.numerator)/\(self.denominator)"
@@ -96,46 +157,40 @@ class Fraction {
         return result
     }
     
-    func toFraction(decimal: Double) -> (n: Int, d: Int) {
-        var n = decimal
-        var d = 1
-        
-        while n.truncatingRemainder(dividingBy: 1.0) != 0 {
-            n *= 10
-            d *= 10
+    func toFraction(decimal : Double, withPrecision eps : Double = 1.0E-6) -> (n: Int, d: Int) {
+        var x = decimal
+        var a = floor(x)
+        var (h1, k1, h, k) = (1, 0, Int(a), 1)
+
+        while x - a > eps * Double(k) * Double(k) {
+            x = 1.0/(x - a)
+            a = floor(x)
+            (h1, k1, h, k) = (h, k, h1 + Int(a) * h, k1 + Int(a) * k)
         }
-        
-        let num = Int(n)
-        let den = Int(d)
-        print("num = \(num), den = \(den)")
-        
-        
-        let divider = gcd(first: num, second: den)
-        
-        return (num / divider, den / divider)
+        return (h, k)
     }
     
-    func decimalToFraction(top:Int, bottom:Int) {
-        
-        var x = top
-        var y = bottom
-        while (y != 0) {
-            var buffer = y
-            y = x % y
-            x = buffer
-        }
-        var hcfVal = x
-        var newTopVal = top/hcfVal
-        var newBottomVal = bottom/hcfVal
-        self.numerator = newTopVal
-        self.denominator = newBottomVal
-        
-        print("-------")
-        print("newTopVal \(newTopVal)")
-        print("newBottomVal \(newBottomVal)")
-    }
+    // sometimes falls
+//    func toFraction(decimal: Double) -> (n: Int, d: Int) {
+//        var n = decimal
+//        var d = 1
+//
+//        while n.truncatingRemainder(dividingBy: 1.0) != 0 {
+//            n *= 10
+//            d *= 10
+//            print(n)
+//        }
+//
+//        let num = Int(n)
+//        let den = Int(d)
+//        print(num)
+//
+//        let divider = gcd(first: num, second: den)
+//
+//        return (num / divider, den / divider)
+//    }
     
-    // OK
+   
     private func multiply(by multiplier: Int) -> Fraction {
         let newNumerator = self.numerator * multiplier
         return Fraction(numerator: newNumerator, denominator: self.denominator)
@@ -226,18 +281,12 @@ extension Fraction {
         }
         return b
     }
-    
-    //    private func gcd(first: Int, second: Int) -> Int {
-    //        if (first == 0) {
-    //            return second
-    //        } else {
-    //            return gcd(first: second % first, second: first)
-    //        }
-    //    }
 }
-/*
- let number = Fraction(numerator: 10, denominator: 7)
- let number1 = Fraction(numerator: 1, denominator: 3)
+
+
+let number  = Fraction(numerator: 1, denominator: 2)
+let number1 = Fraction(decimal: 0.75)
+let number3 = Fraction(numerator: 2, denominator: 3)
  
  // подвоєне значення числа (lazy)
  let x2 = number.multiplyBy2
@@ -258,7 +307,8 @@ extension Fraction {
  print(number.toDecimal)
  
  // Клас має мати subscript (функція на вибір)
- 
+print(number[0]?.description)
+print(number[1]?.description)
  
  // 7. Реалізувати в Fraction методи для операцій “+”,“-”,“*” та “/”.
  print(number.add(to: number1).description)
@@ -275,35 +325,12 @@ extension Fraction {
  
  // Описати власний infix оператор »~~».Пріоритет - найвищий
  print((number~~number1).description)
- 
- 
- */
 
 
-let number = Fraction(numerator: 1, denominator: 2)
-print(number.descriptionObject)
+let result = number ~~ number3 * number
 
-number.denominator = 10
-print(number.descriptionObject)
-//
-//number.decimal = 0.666666
-//print(number.descriptionObject)
+print(result.descriptionObject)
 
-//number.numerator = 3
-//print(number.descriptionObject)
-
-
-
-//number ~~ number1
-//print(number.descriptionObject)
-//number.decimal = 0.75
-//
-//print(number.descriptionObject)
-//print("_---------__-------__------_-----")
-//number.decimal = 1
-//
-//print(number.descriptionObject)
-//print("_---------__-------__------_-----")
 
 
 
