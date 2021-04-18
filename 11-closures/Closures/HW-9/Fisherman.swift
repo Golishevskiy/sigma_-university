@@ -7,14 +7,12 @@
 
 import Foundation
 
-protocol Fisher {
-    func catchAFish()
-}
-
-class Fisherman: Worker, Fisher {
-    
+class Fisherman: Worker {
     func catchAFish() {
         print("\(self.firstName) gave 5 kg of fish")
     }
 }
+
+
+
 

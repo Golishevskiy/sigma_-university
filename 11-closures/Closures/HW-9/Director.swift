@@ -14,35 +14,26 @@ protocol Interview {
 class Director: Interview {
     
     var name: String
-    
-    var fishDelegate: Fisher?
-    var driverDelegate: DriveACar?
-    var teachDelegate: CanTeach?
-    var sellDelegate: SellDoable?
+    typealias closure = () -> Void
     
     init(name: String) {
         self.name = name
     }
     
-    func deliverFish(fisher: Fisherman, driver: Driver) {
-        fishDelegate?.catchAFish()
-        driverDelegate?.toDeliver()
-        
+    func toDeliver(completion: closure) {
+        completion()
     }
     
-    func everyoneToWork() {
-        fishDelegate?.catchAFish()
-        driverDelegate?.toDeliver()
-        teachDelegate?.toTeach()
-        sellDelegate?.sellSomething()
+    func getFish(completion: closure) {
+        completion()
     }
     
-    func sell() {
-        sellDelegate?.sellSomething()
+    func sell(completion: closure) {
+        completion()
     }
     
-    func trainStaff() {
-        teachDelegate?.toTeach()
+    func trainStaff(completion: closure) {
+        completion()
     }
     
     func interview(worker: Worker) -> Bool {

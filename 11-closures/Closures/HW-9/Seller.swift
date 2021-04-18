@@ -7,12 +7,8 @@
 
 import Foundation
 
-protocol SellDoable {
-    func sellSomething()
-}
-
-class Seller: Worker, SellDoable {
+class Seller: Worker {
     func sellSomething() {
-        print("\(self.firstName) sold a lot of fish")
+        print("\(self.firstName) sold a lot of anything")
     }
 }

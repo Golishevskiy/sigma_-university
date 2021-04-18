@@ -7,11 +7,7 @@
 
 import Foundation
 
-protocol CanTeach {
-    func toTeach()
-}
-
-class Teacher: Worker, CanTeach {
+class Teacher: Worker {
     func toTeach() {
         print("\(self.firstName) taught students")
     }

@@ -17,6 +17,16 @@ var alexey = Fisherman(name: "Alexey",
                        higherEducation: true,
                        experience: 0)
 
+var alexey1 = Fisherman(name: "",
+                       lastName: "Maslakov",
+                       salary: 3000,
+                       dateOfBirth: UserDate(year: 1991, month: 1, day: 21),
+                       inWorkDate: UserDate(year: 2015, month: 7, day: 12),
+                       type: .fisherman,
+                       married: true,
+                       higherEducation: true,
+                       experience: 0)
+
 var maksim = Driver(name: "Maksim",
                        lastName: "Petrov",
                        salary: 2000,
@@ -60,27 +70,13 @@ var oleg = Seller(name: "Oleg",
                   salary: 2800,
                   dateOfBirth: UserDate(year: 1994, month: 7, day: 21),
                   inWorkDate: UserDate(year: 2021, month: 10, day: 11),
-                  type: .fisherman,
+                  type: .seller,
                   married: true,
                   higherEducation: true,
                   experience: 5)
 
 
-if let oleg = oleg {
-    print(oleg.firstName)
-}
-maksim?.drinkCoffee()
-
-print(maksim?.firstName)
 var directorJames = Director(name: "James")
-directorJames.fishDelegate = alexey
-directorJames.teachDelegate = taras
-directorJames.driverDelegate = maksim
-taras?.getPaid()
-directorJames.trainStaff()
-directorJames.sellDelegate = artur
-artur?.sellSomething()
-
 
 func constructArray(workers: [Worker?]) -> [Worker] {
     var array = [Worker]()
@@ -98,16 +94,11 @@ let someFactory = Factory(workers: arrayWorker, director: directorJames)
 someFactory.fireWorker(worker: maksim)
 
 someFactory.changeSalary(from: alexey, newSalary: 7000)
-print(alexey?.salary)
-print("------------")
 someFactory.addWorker(worker: artur)
-let searchResult = someFactory.search(worker: maksim)
-print("search result - \(String(describing: searchResult?.firstName))")
 someFactory.addWorker(worker: oleg)
-someFactory.printWorkers()
-print("------------")
 
 
+print("--------------CLOSURE------------")
 /*
  1. Описати функцію у підприємстві яка буде знаходити робітників
  обраного типу (вчитель, водій, і тд) та повертати іх через замкнення.
@@ -117,7 +108,6 @@ print("------------")
 someFactory.search(workerType: .fisherman) { (worker) -> Void in
     worker.sayHello()
 }
-
 
 /*
  2. Визначити функцію, яка знаходить одного робітника (залежить від
@@ -133,6 +123,33 @@ someFactory.search(for: "Alexey") { (worker) in
     }
 }
 
+someFactory.search(for: "Ahmed") { (worker) in
+    if let worker = worker {
+        print("Search result - " + worker.firstName + " " +  worker.lastName)
+    } else {
+        print("worker not found")
+    }
+}
 
+/*
+ 3. Реалізувати делегування задач від директора робітникам
+ використовуючи замкнення, а не протоколи
+ */
 
+directorJames.getFish {
+    alexey?.catchAFish()
+}
+
+directorJames.trainStaff {
+    taras?.toTeach()
+}
+
+directorJames.toDeliver {
+    maksim?.toDeliver()
+}
+
+directorJames.sell {
+    artur?.sellSomething()
+    stas?.sellSomething()
+}
 

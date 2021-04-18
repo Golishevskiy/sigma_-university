@@ -7,13 +7,8 @@
 
 import Foundation
 
-protocol DriveACar {
-    func toDeliver()
-}
-
-class Driver: Worker, DriveACar {
-    
+class Driver: Worker {
     func toDeliver() {
-        print("\(self.firstName) delivered something")
+        print("\(self.firstName) delivered anything")
     }
 }
