@@ -14,8 +14,8 @@ class Parent {
 }
 
 class Son {
-    weak var parent: Parent?
-    init(parent: Parent) {
+     weak var parent: Parent?
+     init(parent: Parent) {
         self.parent = parent
         print("Son is being initialized")
     }
