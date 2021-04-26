@@ -12,6 +12,5 @@ extension Int: CustomTask {
         get {
             return "Task \(self.description)"
         }
-
     }
 }
