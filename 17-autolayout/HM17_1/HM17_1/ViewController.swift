@@ -13,7 +13,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         layout()
-        
     }
     
     private func setupViews() {
