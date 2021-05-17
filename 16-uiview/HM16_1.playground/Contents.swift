@@ -9,12 +9,14 @@ class MyViewController : UIViewController {
         let view = UIView()
         self.view = view
         
+        // 2. Реалізувати так, щоб при додаванні цього класу до інтерфейсу було
+        // видно наступне
         let target = Target()
         view.addSubview(target)
     }
 }
 
-
+// 1. Створити свій підклас UIView
 class Target: UIView {
     
     override init(frame: CGRect) {
@@ -26,7 +28,7 @@ class Target: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setup() {
+    private func setup() {
         self.addSubview(redView)
         redView.addSubview(blueView)
         redView.addSubview(pointView)
@@ -34,7 +36,7 @@ class Target: UIView {
         layout()
     }
     
-    func layout() {
+    private func layout() {
         // pointView
         pointView.center = CGPoint(x: redView.bounds.midX, y: redView.bounds.midY)
         
@@ -43,7 +45,7 @@ class Target: UIView {
     }
     
     
-    let redView: UIView = {
+    private let redView: UIView = {
         let size = CGSize(width: 350, height: 350)
         let point = CGPoint(x: 10, y: 150)
         var rect = CGRect(origin: point, size: size)
@@ -55,7 +57,7 @@ class Target: UIView {
         return view
     }()
     
-    let blueView: UIView = {
+    private let blueView: UIView = {
         let size = CGSize(width: 230, height: 230)
         var rect = CGRect(origin: .zero, size: size)
         let view = UIView(frame: rect)
@@ -66,7 +68,7 @@ class Target: UIView {
         return view
     }()
     
-    let pointView: UIView = {
+    private let pointView: UIView = {
         let size = CGSize(width: 110, height: 110)
         var rect = CGRect(origin: .zero, size: size)
         let view = UIView(frame: rect)
