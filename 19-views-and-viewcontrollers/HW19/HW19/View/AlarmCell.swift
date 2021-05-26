@@ -2,22 +2,21 @@
 //  AlarmCell.swift
 //  HW19
 //
-//  Created by Petro Golishevskiy on 24.05.2021.
+//  Created by Petro Golishevskiy on 26.05.2021.
 //
 
 import UIKit
 
-class AlarmCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+class AlarmCell: UICollectionViewCell {
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    func setup(time: String, description: String) {
+        timeLabel.text = time
+        descriptionLabel.text = description
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @IBAction func alarmSwitch(_ sender: UISwitch) {
     }
-
+    
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TimeCellTableViewCell: UITableViewCell {
+class TimeCell: UITableViewCell {
 
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var timeZoneLabel: UILabel!

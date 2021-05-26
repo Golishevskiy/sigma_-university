@@ -9,6 +9,7 @@ import UIKit
 
 class WorldTimeTable: UITableViewController {
     
+    private var isEdit = false
     private var identifier = "cell"
     private var array = [City]() {
         didSet {
@@ -19,6 +20,13 @@ class WorldTimeTable: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setDemonstrationData()
+        tableView.tableFooterView = UIView()
+    }
+    
+    
+    @IBAction func reorder(_ sender: UIBarButtonItem) {
+        isEdit = !isEdit
+        tableView.isEditing = isEdit
     }
     
     func setDemonstrationData() {
@@ -40,16 +48,26 @@ class WorldTimeTable: UITableViewController {
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier,
-                                                 for: indexPath) as! TimeCellTableViewCell
+                                                 for: indexPath) as! TimeCell
         let city = array[indexPath.row]
         cell.setup(city: city.name, timeZone: city.timeZone, time: city.time)
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView,
+                            commit editingStyle: UITableViewCell.EditingStyle,
+                            forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             array.remove(at: indexPath.row)
         }
+    }
+    
+    override func tableView(_ tableView: UITableView,
+                            moveRowAt sourceIndexPath: IndexPath,
+                            to destinationIndexPath: IndexPath) {
+        let movedItem = self.array[sourceIndexPath.row]
+        array.remove(at: sourceIndexPath.row)
+        array.insert(movedItem, at: destinationIndexPath.row)
     }
     
     override func tableView(_ tableView: UITableView,
