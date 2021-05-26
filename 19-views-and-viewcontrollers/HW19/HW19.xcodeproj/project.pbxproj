@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		AB1AFABC265E8BB9009C536E /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1AFABB265E8BB9009C536E /* Alarm.swift */; };
+		AB1AFAC0265E9C70009C536E /* AddCity+Delegate+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1AFABF265E9C70009C536E /* AddCity+Delegate+DataSource.swift */; };
 		ABDB1E9B265BEF280099927B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB1E9A265BEF280099927B /* AppDelegate.swift */; };
 		ABDB1E9D265BEF280099927B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB1E9C265BEF280099927B /* SceneDelegate.swift */; };
 		ABDB1EA2265BEF280099927B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABDB1EA0265BEF280099927B /* Main.storyboard */; };
 		ABDB1EA4265BEF290099927B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABDB1EA3265BEF290099927B /* Assets.xcassets */; };
 		ABDB1EA7265BEF290099927B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABDB1EA5265BEF290099927B /* LaunchScreen.storyboard */; };
-		ABDB1EB1265BF3700099927B /* WorldTimeTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB1EB0265BF3700099927B /* WorldTimeTable.swift */; };
+		ABDB1EB1265BF3700099927B /* WorldTimeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB1EB0265BF3700099927B /* WorldTimeVC.swift */; };
 		ABDB1EB4265BFAF00099927B /* TimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB1EB3265BFAF00099927B /* TimeCell.swift */; };
 		ABDB1EC5265CFF270099927B /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB1EC4265CFF270099927B /* Cities.swift */; };
 		ABDB1EC8265D017B0099927B /* AddCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB1EC7265D017B0099927B /* AddCity.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		AB1AFABB265E8BB9009C536E /* Alarm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		AB1AFABF265E9C70009C536E /* AddCity+Delegate+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddCity+Delegate+DataSource.swift"; sourceTree = "<group>"; };
 		ABDB1E97265BEF280099927B /* HW19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HW19.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABDB1E9A265BEF280099927B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABDB1E9C265BEF280099927B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,7 +33,7 @@
 		ABDB1EA3265BEF290099927B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABDB1EA6265BEF290099927B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABDB1EA8265BEF290099927B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ABDB1EB0265BF3700099927B /* WorldTimeTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTimeTable.swift; sourceTree = "<group>"; };
+		ABDB1EB0265BF3700099927B /* WorldTimeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldTimeVC.swift; sourceTree = "<group>"; };
 		ABDB1EB3265BFAF00099927B /* TimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCell.swift; sourceTree = "<group>"; };
 		ABDB1EC4265CFF270099927B /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
 		ABDB1EC7265D017B0099927B /* AddCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCity.swift; sourceTree = "<group>"; };
@@ -104,8 +106,9 @@
 		ABDB1EC2265CFE850099927B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				ABDB1EB0265BF3700099927B /* WorldTimeTable.swift */,
+				ABDB1EB0265BF3700099927B /* WorldTimeVC.swift */,
 				ABDB1EC7265D017B0099927B /* AddCity.swift */,
+				AB1AFABF265E9C70009C536E /* AddCity+Delegate+DataSource.swift */,
 				ABDB1ED9265E59FC0099927B /* AlarmVC.swift */,
 				ABDB1ED4265E3D3D0099927B /* PageViewController.swift */,
 			);
@@ -185,12 +188,13 @@
 				ABDB1EB4265BFAF00099927B /* TimeCell.swift in Sources */,
 				ABDB1ED5265E3D3D0099927B /* PageViewController.swift in Sources */,
 				ABDB1E9B265BEF280099927B /* AppDelegate.swift in Sources */,
+				AB1AFAC0265E9C70009C536E /* AddCity+Delegate+DataSource.swift in Sources */,
 				ABDB1E9D265BEF280099927B /* SceneDelegate.swift in Sources */,
 				ABDB1EDA265E59FC0099927B /* AlarmVC.swift in Sources */,
 				ABDB1F06265E73840099927B /* AlarmCell.swift in Sources */,
 				ABDB1EC5265CFF270099927B /* Cities.swift in Sources */,
 				AB1AFABC265E8BB9009C536E /* Alarm.swift in Sources */,
-				ABDB1EB1265BF3700099927B /* WorldTimeTable.swift in Sources */,
+				ABDB1EB1265BF3700099927B /* WorldTimeVC.swift in Sources */,
 				ABDB1EC8265D017B0099927B /* AddCity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

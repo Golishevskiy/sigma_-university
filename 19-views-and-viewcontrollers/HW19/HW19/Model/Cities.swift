@@ -13,5 +13,3 @@ struct City {
     var time: String
     var country: String
 }
-
-
