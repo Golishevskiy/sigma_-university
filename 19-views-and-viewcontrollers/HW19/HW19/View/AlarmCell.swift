@@ -8,6 +8,7 @@
 import UIKit
 
 class AlarmCell: UICollectionViewCell {
+    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     

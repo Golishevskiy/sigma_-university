@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WorldTimeTable: UITableViewController {
+class WorldTimeVC: UITableViewController {
     
     private var isEdit = false
     private var identifier = "cell"
@@ -22,7 +22,6 @@ class WorldTimeTable: UITableViewController {
         setDemonstrationData()
         tableView.tableFooterView = UIView()
     }
-    
     
     @IBAction func reorder(_ sender: UIBarButtonItem) {
         isEdit = !isEdit
