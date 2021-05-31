@@ -41,10 +41,10 @@ class ViewController: UIViewController {
     
     
     private func setupArray() {
-        var imageNames = ["cat", "cat1", "cat2", "cat3", "cat4"]
+        let imageNames = ["cat", "cat1", "cat2", "cat3", "cat4"]
         
         for name in imageNames {
-            var myLayer: CALayer = {
+            let myLayer: CALayer = {
                 let layer = CALayer()
                 let myImage = UIImage(named: name)?.cgImage
                 layer.contents = myImage
@@ -59,7 +59,7 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
+        if let _ = touches.first {
             
             let touch = touches.first
                     let point = touch!.location(in: self.view)
@@ -82,7 +82,7 @@ class ViewController: UIViewController {
             animation.fromValue = CGSize(width: 0, height: 0)
             animation.toValue = CGSize(width: position.x, height: position.y)
             
-            let animation2 = CABasicAnimation(keyPath: #keyPath(CALayer.bounds))
+            _ = CABasicAnimation(keyPath: #keyPath(CALayer.bounds))
             
             let rotateAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
             rotateAnimation.valueFunction = CAValueFunction(name: .rotateX)
