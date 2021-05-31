@@ -8,11 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-    var imageNames = ["cat", "cat1", "cat2", "cat3", "cat4", "cat5"]
-    var array = [CALayer]()
-
+    
+    private var imageNames = ["cat", "cat1", "cat2", "cat3", "cat4"]
+    private var array = [CALayer]()
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
+        cleanButton.isHidden = true
         setupArray()
         view.addSubview(cleanButton)
         NSLayoutConstraint.activate([
@@ -24,7 +26,7 @@ class ViewController: UIViewController {
     
     lazy var cleanButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .blue
+        button.backgroundColor = .orange
         button.setTitle("clean", for: .normal)
         button.addTarget(self, action: #selector(clean), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -34,22 +36,20 @@ class ViewController: UIViewController {
     @objc func clean() {
         view.layer.sublayers = nil
         view.addSubview(cleanButton)
+        array.removeAll()
+        cleanButton.isHidden = true
         setupArray()
-        
     }
     
-    
-    
     private func setupArray() {
-        let imageNames = ["cat", "cat1", "cat2", "cat3", "cat4"]
-        
         for name in imageNames {
             let myLayer: CALayer = {
                 let layer = CALayer()
                 let myImage = UIImage(named: name)?.cgImage
                 layer.contents = myImage
-                layer.contentsGravity = .resizeAspect
+                layer.contentsGravity = .resizeAspectFill
                 layer.cornerRadius = 20
+                layer.backgroundColor = UIColor.orange.cgColor
                 layer.masksToBounds = true
                 return layer
             }()
@@ -59,60 +59,28 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let _ = touches.first {
-            
-            let touch = touches.first
-                    let point = touch!.location(in: self.view)
-                    if array[0].contains(point) {
-                        print ("We tapped the square")
-                    }
-            
-            let position = touch!.location(in: view)
+        if let touch = touches.first {
+            cleanButton.isHidden = false
+            let position = touch.location(in: view)
             let newPosition = CGPoint(x: position.x - 75, y: position.y - 110)
-            
-//            let myLayer = CALayer()
-//            let myImage = UIImage(named: "cat")?.cgImage
-//            let animation1 = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
-////
-//            animation1.fromValue = 0.0
-//            animation1.toValue = 1.0
-//            animation1.duration = 0.7
-//            animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-            let animation = CABasicAnimation(keyPath: #keyPath(CALayer.position))
-            animation.fromValue = CGSize(width: 0, height: 0)
-            animation.toValue = CGSize(width: position.x, height: position.y)
-            
-            _ = CABasicAnimation(keyPath: #keyPath(CALayer.bounds))
-            
-            let rotateAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
-            rotateAnimation.valueFunction = CAValueFunction(name: .rotateX)
-            rotateAnimation.fromValue = 0
-            rotateAnimation.toValue = 6
-            
-            
-//            rotateAnimation.duration = 1.0
-            
-            let rotateAnimation1 = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
-            rotateAnimation1.valueFunction = CAValueFunction(name: .rotateZ)
-            rotateAnimation1.fromValue = 3
-            rotateAnimation1.toValue = 9
-            rotateAnimation1.duration = 0.6
-            
-            let animGroup = CAAnimationGroup()
-            animGroup.animations = [rotateAnimation, rotateAnimation1]
-            animGroup.duration = 1.0
-            
-//            myLayer.add(animGroup, forKey: nil)
-//            myLayer.frame = CGRect(origin: newPosition, size: CGSize(width: 150, height: 220))
-//            myLayer.contents = myImage
-//            myLayer.contentsGravity = .resizeAspect
             guard let layer = array.first else { return }
-            layer.frame = CGRect(origin: newPosition, size: CGSize(width: 150, height: 220))
+            layer.frame = CGRect(origin: newPosition, size: CGSize(width: 180,
+                                                                   height: 180))
             view.layer.addSublayer(layer)
             layer.rotateXY()
-            array.removeFirst()
+            let removed =  array.removeFirst()
             
+            if removed.contains(position) {
+                print("touched")
+            }
             
+            if let sublayers = view.layer.sublayers {
+                for layer in sublayers {
+                    if (layer.hitTest(position) != nil) {
+                        print(layer.description)
+                    }
+                }
+            }
         }
     }
 }
@@ -120,26 +88,31 @@ class ViewController: UIViewController {
 
 extension CALayer {
     func rotateXY() {
+        let rotateAnimationX = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
+        rotateAnimationX.valueFunction = CAValueFunction(name: .rotateX)
+        rotateAnimationX.fromValue = 0
+        rotateAnimationX.toValue = 6
+        rotateAnimationX.isAdditive = true
+        rotateAnimationX.isCumulative = true
         
-        let rotateAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
-        rotateAnimation.valueFunction = CAValueFunction(name: .rotateX)
-        rotateAnimation.fromValue = 0
-        rotateAnimation.toValue = 6
+        let rotateAnimationZ = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
+        rotateAnimationZ.valueFunction = CAValueFunction(name: .rotateZ)
+        rotateAnimationZ.fromValue = 3
+        rotateAnimationZ.toValue = 9
+        rotateAnimationZ.duration = 0.6
+        rotateAnimationZ.isAdditive = true
         
-        let rotateAnimation1 = CABasicAnimation(keyPath: #keyPath(CALayer.transform))
-        rotateAnimation1.valueFunction = CAValueFunction(name: .rotateZ)
-        rotateAnimation1.fromValue = 3
-        rotateAnimation1.toValue = 9
-        rotateAnimation1.duration = 0.6
+        let opacityAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
+        opacityAnimation.fromValue = 0.0
+        opacityAnimation.toValue = 1.0
         
-        let animGroup = CAAnimationGroup()
-        animGroup.animations = [rotateAnimation, rotateAnimation1]
-        animGroup.duration = 1.0
+        let animationGroup = CAAnimationGroup()
+        animationGroup.animations = [rotateAnimationX, rotateAnimationZ, opacityAnimation]
+        animationGroup.duration = 2.0
         
-        self.add(animGroup, forKey: nil)
+        self.add(animationGroup, forKey: nil)
     }
 }
-    
 
 
 
