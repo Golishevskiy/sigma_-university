@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J9J-5b-WDd">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Images-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="viewController" id="BYZ-38-t0r" customClass="ViewController" customModule="HW20" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Images" image="photo.on.rectangle.angled" catalog="system" id="bbA-br-dDo"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-662" y="783"/>
+        </scene>
+        <!--List-->
+        <scene sceneID="HkT-vN-fGX">
+            <objects>
+                <viewController id="GQM-Hv-8YM" customClass="DropDownViewController" customModule="HW20" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rmz-Ef-Mdz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KmC-Yw-uN7">
+                                <rect key="frame" x="30" y="94" width="354" height="236"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hkV-SG-s0F">
+                                        <rect key="frame" x="0.0" y="0.0" width="354" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="X4G-iG-JJs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <state key="normal" title="Product list">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="productListButton:" destination="GQM-Hv-8YM" eventType="touchUpInside" id="qsE-VI-8sZ"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u0E-KM-apb">
+                                        <rect key="frame" x="0.0" y="50" width="354" height="0.0"/>
+                                    </imageView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xrq-sd-H6T">
+                                        <rect key="frame" x="0.0" y="50" width="354" height="186"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="750" constant="186" id="8Kh-8n-0kC"/>
+                                        </constraints>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="edh-uc-5dF">
+                                                <rect key="frame" x="0.0" y="28" width="354" height="43.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="edh-uc-5dF" id="7my-yi-2on">
+                                                    <rect key="frame" x="0.0" y="0.0" width="354" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </tableViewCellContentView>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="GQM-Hv-8YM" id="bpR-4c-IQa"/>
+                                            <outlet property="delegate" destination="GQM-Hv-8YM" id="MrC-2U-HLH"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="xrq-sd-H6T" firstAttribute="top" secondItem="hkV-SG-s0F" secondAttribute="bottom" id="nVq-X9-h0s"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qa9-A6-3Wr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qa9-A6-3Wr" firstAttribute="trailing" secondItem="KmC-Yw-uN7" secondAttribute="trailing" constant="30" id="PdH-Sv-uv6"/>
+                            <constraint firstItem="KmC-Yw-uN7" firstAttribute="top" secondItem="qa9-A6-3Wr" secondAttribute="top" constant="50" id="S6X-gD-Sfm"/>
+                            <constraint firstItem="KmC-Yw-uN7" firstAttribute="leading" secondItem="qa9-A6-3Wr" secondAttribute="leading" constant="30" id="qLC-ft-RkC"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="List" image="list.bullet.rectangle" catalog="system" id="SYq-XV-lmc"/>
+                    <connections>
+                        <outlet property="productListButton" destination="hkV-SG-s0F" id="PDM-pr-gI0"/>
+                        <outlet property="stackView" destination="KmC-Yw-uN7" id="rS4-sh-6cZ"/>
+                        <outlet property="tableView" destination="xrq-sd-H6T" id="ZM0-oq-NXY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="747-Vb-ZS9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1707.2463768115942" y="782.8125"/>
+        </scene>
+        <!--Loader-->
+        <scene sceneID="dhl-z2-qHg">
+            <objects>
+                <viewController storyboardIdentifier="loaderViewController" id="aYC-7Y-gLg" customClass="LoaderViewController" customModule="HW20" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xIC-Hy-mnV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="7Gj-Kb-3AX">
+                                <rect key="frame" x="18" y="733" width="378" height="31"/>
+                                <connections>
+                                    <action selector="sliderAction:" destination="aYC-7Y-gLg" eventType="valueChanged" id="9ia-2N-hyW"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="XtQ-qL-KaO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="XtQ-qL-KaO" firstAttribute="trailing" secondItem="7Gj-Kb-3AX" secondAttribute="trailing" constant="20" id="G9j-9A-NZN"/>
+                            <constraint firstItem="XtQ-qL-KaO" firstAttribute="bottom" secondItem="7Gj-Kb-3AX" secondAttribute="bottom" constant="50" id="bGo-a0-SoY"/>
+                            <constraint firstItem="7Gj-Kb-3AX" firstAttribute="leading" secondItem="XtQ-qL-KaO" secondAttribute="leading" constant="20" id="k5u-oR-PSe"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Loader" image="circles.hexagonpath.fill" catalog="system" id="ZWP-p0-zXY"/>
+                    <connections>
+                        <outlet property="slider" destination="7Gj-Kb-3AX" id="TTh-WS-e4x"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aow-r4-0mk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="359" y="783"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="aOe-um-xXO">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="J9J-5b-WDd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gsZ-NH-zbX">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="ypz-En-aWI"/>
+                        <segue destination="aYC-7Y-gLg" kind="relationship" relationship="viewControllers" id="572-rT-hgK"/>
+                        <segue destination="GQM-Hv-8YM" kind="relationship" relationship="viewControllers" id="D9m-aB-ehT"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JZe-M0-OjT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-661" y="41"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="circles.hexagonpath.fill" catalog="system" width="128" height="112"/>
+        <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
+        <image name="photo.on.rectangle.angled" catalog="system" width="128" height="101"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
