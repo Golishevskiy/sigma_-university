@@ -24,6 +24,7 @@ class ViewController: UIViewController, ContactDelegate {
     lazy var selectContact: String = ""
     var contactDictionary = [String: [String]]()
     var sectionTitle = [String]()
+    private var urls: [URL] = []
     
     private var contacts = ["Petro", "Ivan", "Roman", "Taras", "Artur",
                             "Petro", "Ivan", "Roman", "Taras", "Artur",
@@ -31,6 +32,8 @@ class ViewController: UIViewController, ContactDelegate {
                             "Petro", "Ivan", "Roman", "Taras", "Artur",
                             "Petro", "Ivan", "Roman", "Taras", "Artur",
                             "Petro", "Ivan", "Roman", "Taras", "Artur"]
+    
+    
     private let identifier = "cell"
     var resultSearch: [String] = [] {
         didSet {
@@ -48,25 +51,25 @@ class ViewController: UIViewController, ContactDelegate {
         
         let fileManager = FileManager.default
         let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("Contacts")
-        
-        let stringPath = Bundle.main.path(forResource: documentsURL.absoluteString, ofType: "plist")
-
+        //                let stringPath = Bundle.main.path(forResource: documentsURL.absoluteString, ofType: "plist")
         
         do {
             let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
-            print("*********")
-             
-          
+            self.urls = fileURLs
         } catch {
-            print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
+            
         }
         
+        
+        
+        
+        
+        for url in urls {
+            getContact(url: url)
+        }
+        
+        
         createDirectory()
-        
-        
-       
-
-        
         fillInSection()
         
         
@@ -80,14 +83,21 @@ class ViewController: UIViewController, ContactDelegate {
         definesPresentationContext = true
     }
     
-    func getPlist(withName name: String) -> [String]?
-    {
-        if  let path = Bundle.main.path(forResource: name, ofType: "plist"),
-            let xml = FileManager.default.contents(atPath: path)
-        {
-            return (try? PropertyListSerialization.propertyList(from: xml, options: .mutableContainersAndLeaves, format: nil)) as? [String]
+    func getContact(url: URL) {
+        do {
+            if let data = NSMutableDictionary(contentsOf: url) {
+                print(data["secondName"])
+            }
+        }catch {
+            print("error")
         }
-
+    }
+    
+    func getPlist(pathStr path: String) -> [String: String]? {
+        if let xml = FileManager.default.contents(atPath: path) {
+            return (try? PropertyListSerialization.propertyList(from: xml, options: .mutableContainersAndLeaves, format: nil)) as? [String: String]
+        }
+        
         return nil
     }
     
@@ -95,8 +105,8 @@ class ViewController: UIViewController, ContactDelegate {
         let fileManager = FileManager.default
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let dataPath = documentsDirectory.appendingPathComponent("Contacts")
-//        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("Contactss"))
-
+        //        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("Contactss"))
+        
         do {
             try FileManager.default.createDirectory(atPath: dataPath.path, withIntermediateDirectories: true, attributes: nil)
         } catch let error as NSError {
@@ -105,21 +115,21 @@ class ViewController: UIViewController, ContactDelegate {
     }
     
     func readPropertyList() {
-            var propertyListFormat =  PropertyListSerialization.PropertyListFormat.xml
-            var plistData: [String: String] = [:]
+        var propertyListFormat =  PropertyListSerialization.PropertyListFormat.xml
+        var plistData: [String: String] = [:]
         
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         let dataPath = documentsDirectory.appendingPathComponent("Contacts/newFolder")
         
-            let plistPath: String? = Bundle.main.path(forResource: "data", ofType: "plist")!
-            let plistXML = FileManager.default.contents(atPath: plistPath!)!
-            do {//convert the data to a dictionary and handle errors.
-                plistData = try PropertyListSerialization.propertyList(from: plistXML, options: .mutableContainersAndLeaves, format: &propertyListFormat) as! [String: String]
-
-            } catch {
-                print("Error reading plist: \(error), format: \(propertyListFormat)")
-            }
+        let plistPath: String? = Bundle.main.path(forResource: "data", ofType: "plist")!
+        let plistXML = FileManager.default.contents(atPath: plistPath!)!
+        do {//convert the data to a dictionary and handle errors.
+            plistData = try PropertyListSerialization.propertyList(from: plistXML, options: .mutableContainersAndLeaves, format: &propertyListFormat) as! [String: String]
+            
+        } catch {
+            print("Error reading plist: \(error), format: \(propertyListFormat)")
         }
+    }
     
     func fillInSection() {
         for contact in contacts {
@@ -167,11 +177,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
         return 0
-        //        return searchController.isActive ? resultSearch.count : contacts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let data = searchController.isActive ? resultSearch[indexPath.row] : contacts[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
         
         if searchController.isActive {
@@ -181,7 +189,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             let key = sectionTitle[indexPath.section]
             if let value = contactDictionary[key] {
                 cell.textLabel?.text = value[indexPath.row]
-              return cell
+                return cell
             }
         }
         return cell
@@ -195,7 +203,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-//            contacts.remove(at: indexPath.row)
             let key = sectionTitle[indexPath.section]
             contactDictionary[key]?.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
@@ -221,14 +228,3 @@ extension ViewController: UISearchResultsUpdating {
         filter(searchText: text)
     }
 }
-
-
-
-//        let fileManager = FileManager.default
-//        let documentsURL = dataPath
-//            fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
-//        do {
-//            let fileURLs = try fileManager.contentsOfDirectory(at: documentsURL, includingPropertiesForKeys: nil)
-//        } catch {
-//            print("Error while enumerating files \(documentsURL.path): \(error.localizedDescription)")
-//        }
