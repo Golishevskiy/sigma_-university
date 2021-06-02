@@ -11,23 +11,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        
-        let key = "startСounter"
-        let counter = UserDefaults.standard
-        let oldValue = counter.integer(forKey: key)
-        print(counter.synchronize())
-        print("oldValue - \(oldValue)")
-        
-        counter.setValue(oldValue + 1, forKey: key)
-        print(counter.synchronize())
-        print("newValue - \(counter.integer(forKey: key))")
-        
-        if counter.integer(forKey: key) % 3 == 0 {
-            print("Alert")
-        }
         return true
     }
 

@@ -15,7 +15,6 @@ class AddContactTableViewController: UITableViewController {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
-    var delegate: ContactDelegate?
     var showContact: Contact?
     
     override func viewDidLoad() {
@@ -27,7 +26,7 @@ class AddContactTableViewController: UITableViewController {
     private func setupShowViewContact() {
         if let contact = showContact {
             saveButton.isEnabled = false
-            firstNameTextField.text = contact.name
+            firstNameTextField.text = contact.firstName
             secondNameTextField.text = contact.secondName
             phoneTextField.text = contact.phone
             self.title = "Contact"
@@ -39,8 +38,8 @@ class AddContactTableViewController: UITableViewController {
                                           action: #selector(textFieldDidChange),
                                           for: .editingChanged)
             emailTextField.addTarget(self,
-                                       action: #selector(textFieldDidChange),
-                                       for: .editingChanged)
+                                     action: #selector(textFieldDidChange),
+                                     for: .editingChanged)
             phoneTextField.addTarget(self,
                                      action: #selector(textFieldDidChange),
                                      for: .editingChanged)
@@ -56,11 +55,12 @@ class AddContactTableViewController: UITableViewController {
         if checkFill() {
             guard let fName = self.firstNameTextField.text else { return }
             guard let sName = self.secondNameTextField.text else { return }
-
+            
             let fileManager = FileManager.default
             var directory = NSSearchPathForDirectoriesInDomains(.documentDirectory,
                                                                 .userDomainMask,
                                                                 true)[0] as String
+            
             directory.append("/Contacts")
             let path = directory.appending("/\(UUID().uuidString).plist")
             
@@ -80,12 +80,6 @@ class AddContactTableViewController: UITableViewController {
                 print("file exists")
             }
             navigationController?.popViewController(animated: true)
-            
-//            let contact = Contact(name: fName,
-//                                  secondName: sName,
-//                                  phone: nil,
-//                                  image: nil)
-//            self.delegate?.passData(contact: contact)
         }
     }
     
