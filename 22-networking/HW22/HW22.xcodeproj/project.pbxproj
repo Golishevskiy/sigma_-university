@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		AB0625AA266824E30034A7A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0625A9266824E30034A7A1 /* AppDelegate.swift */; };
 		AB0625AC266824E30034A7A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0625AB266824E30034A7A1 /* SceneDelegate.swift */; };
-		AB0625AE266824E30034A7A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0625AD266824E30034A7A1 /* ViewController.swift */; };
 		AB0625B1266824E30034A7A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB0625AF266824E30034A7A1 /* Main.storyboard */; };
 		AB0625B3266824E50034A7A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB0625B2266824E50034A7A1 /* Assets.xcassets */; };
 		AB0625B6266824E50034A7A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB0625B4266824E50034A7A1 /* LaunchScreen.storyboard */; };
+		AB0625C7266825F80034A7A1 /* RepoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0625C6266825F80034A7A1 /* RepoTableViewController.swift */; };
+		AB0625CA2668299A0034A7A1 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0625C92668299A0034A7A1 /* Network.swift */; };
+		AB0625CD2668E7900034A7A1 /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0625CC2668E7900034A7A1 /* Repositories.swift */; };
+		AB0625D12669338B0034A7A1 /* RepoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0625CF2669338B0034A7A1 /* RepoTableViewCell.swift */; };
+		AB0625D22669338B0034A7A1 /* RepoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB0625D02669338B0034A7A1 /* RepoTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AB0625A6266824E30034A7A1 /* HW22.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HW22.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB0625A9266824E30034A7A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB0625AB266824E30034A7A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AB0625AD266824E30034A7A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AB0625B0266824E30034A7A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB0625B2266824E50034A7A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB0625B5266824E50034A7A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB0625B7266824E50034A7A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB0625C6266825F80034A7A1 /* RepoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableViewController.swift; sourceTree = "<group>"; };
+		AB0625C92668299A0034A7A1 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		AB0625CC2668E7900034A7A1 /* Repositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
+		AB0625CF2669338B0034A7A1 /* RepoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableViewCell.swift; sourceTree = "<group>"; };
+		AB0625D02669338B0034A7A1 /* RepoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,8 +66,12 @@
 			children = (
 				AB0625A9266824E30034A7A1 /* AppDelegate.swift */,
 				AB0625AB266824E30034A7A1 /* SceneDelegate.swift */,
-				AB0625AD266824E30034A7A1 /* ViewController.swift */,
 				AB0625AF266824E30034A7A1 /* Main.storyboard */,
+				AB0625C6266825F80034A7A1 /* RepoTableViewController.swift */,
+				AB0625CC2668E7900034A7A1 /* Repositories.swift */,
+				AB0625C92668299A0034A7A1 /* Network.swift */,
+				AB0625CF2669338B0034A7A1 /* RepoTableViewCell.swift */,
+				AB0625D02669338B0034A7A1 /* RepoTableViewCell.xib */,
 				AB0625B2266824E50034A7A1 /* Assets.xcassets */,
 				AB0625B4266824E50034A7A1 /* LaunchScreen.storyboard */,
 				AB0625B7266824E50034A7A1 /* Info.plist */,
@@ -127,6 +139,7 @@
 				AB0625B6266824E50034A7A1 /* LaunchScreen.storyboard in Resources */,
 				AB0625B3266824E50034A7A1 /* Assets.xcassets in Resources */,
 				AB0625B1266824E30034A7A1 /* Main.storyboard in Resources */,
+				AB0625D22669338B0034A7A1 /* RepoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,9 +150,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB0625AE266824E30034A7A1 /* ViewController.swift in Sources */,
 				AB0625AA266824E30034A7A1 /* AppDelegate.swift in Sources */,
+				AB0625CD2668E7900034A7A1 /* Repositories.swift in Sources */,
+				AB0625C7266825F80034A7A1 /* RepoTableViewController.swift in Sources */,
+				AB0625CA2668299A0034A7A1 /* Network.swift in Sources */,
 				AB0625AC266824E30034A7A1 /* SceneDelegate.swift in Sources */,
+				AB0625D12669338B0034A7A1 /* RepoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
