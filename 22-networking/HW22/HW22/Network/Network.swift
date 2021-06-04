@@ -30,7 +30,7 @@ class Network {
                         let response = response as? HTTPURLResponse,
                         response.statusCode == 200 {
                         
-                        if let repos = try? JSONDecoder().decode(Welcome.self, from: data) {
+                        if let repos = try? JSONDecoder().decode(Repositories.self, from: data) {
                             print(repos.items)
                             completion(repos.items)
                         }
