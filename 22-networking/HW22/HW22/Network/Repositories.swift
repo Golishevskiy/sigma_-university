@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Welcome
-struct Welcome: Codable {
+struct Repositories: Codable {
     let totalCount: Int
     let incompleteResults: Bool
     let items: [Item]
@@ -54,6 +54,7 @@ struct Item: Codable {
 //    let svnURL: String
 //    let homepage: String
 //    let size, stargazersCount, watchersCount: Int
+    let stars: Int
 //    let language: String
 //    let hasIssues, hasProjects, hasDownloads, hasWiki: Bool
 //    let hasPages: Bool
@@ -62,6 +63,7 @@ struct Item: Codable {
 //    let openIssuesCount: Int
 ////    let license: License
 //    let forks, openIssues, watchers: Int
+      let watchers: Int
 //    let defaultBranch: String
 //    let score: Int
 
@@ -119,7 +121,7 @@ struct Item: Codable {
 //        case cloneURL = "clone_url"
 //        case svnURL = "svn_url"
 //        case homepage, size
-//        case stargazersCount = "stargazers_count"
+        case stars = "stargazers_count"
 //        case watchersCount = "watchers_count"
 //        case language
 //        case hasIssues = "has_issues"
@@ -133,7 +135,7 @@ struct Item: Codable {
 //        case openIssuesCount = "open_issues_count"
 //        case license, forks
 //        case openIssues = "open_issues"
-//        case watchers
+        case watchers
 //        case defaultBranch = "default_branch"
 //        case score
     }

@@ -13,6 +13,7 @@ class RepoTableViewController: UITableViewController {
     var identifier = "cell"
     private var items: [Item]? {
         didSet {
+            items?.sort(by: {$0.stars > $1.stars})
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -59,6 +60,7 @@ class RepoTableViewController: UITableViewController {
         let item = items[indexPath.row]
         cell.setup(name: item.fullName,
                    description: item.itemDescription,
+                   rating: item.stars,
                    imgURL: item.owner.avatarURL)
 
         return cell

@@ -24,8 +24,8 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZIY-BG-4Ih">
-                        <rect key="frame" x="95" y="37" width="178" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="95" y="37" width="178" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -41,8 +41,16 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0lt-cd-gHg">
+                        <rect key="frame" x="297" y="56.5" width="15" height="15"/>
+                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="2iB-Ez-XmP"/>
+                            <constraint firstAttribute="width" constant="15" id="dcQ-yC-Rsa"/>
+                        </constraints>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLo-Ug-QLu">
-                        <rect key="frame" x="281" y="57" width="31" height="15"/>
+                        <rect key="frame" x="262" y="57" width="31" height="15"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -51,15 +59,17 @@
                 <constraints>
                     <constraint firstItem="W6Q-ML-LGh" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.55625" id="7At-AQ-caN"/>
                     <constraint firstItem="W6Q-ML-LGh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="8eq-TU-OX4"/>
-                    <constraint firstAttribute="bottom" secondItem="JLo-Ug-QLu" secondAttribute="bottom" constant="8" id="AF1-DL-o0v"/>
                     <constraint firstItem="wzc-ef-zi3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="HV7-ie-4eA"/>
                     <constraint firstItem="ZIY-BG-4Ih" firstAttribute="leading" secondItem="wzc-ef-zi3" secondAttribute="trailing" constant="16" id="I0y-V6-O3w"/>
+                    <constraint firstAttribute="bottom" secondItem="0lt-cd-gHg" secondAttribute="bottom" constant="8" id="MPU-od-WGn"/>
                     <constraint firstItem="ZIY-BG-4Ih" firstAttribute="width" secondItem="W6Q-ML-LGh" secondAttribute="width" id="Pnu-m4-RWv"/>
                     <constraint firstItem="W6Q-ML-LGh" firstAttribute="leading" secondItem="wzc-ef-zi3" secondAttribute="trailing" constant="16" id="RcF-pC-1aj"/>
                     <constraint firstItem="wzc-ef-zi3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="WIw-i9-8UI"/>
-                    <constraint firstAttribute="trailing" secondItem="JLo-Ug-QLu" secondAttribute="trailing" constant="8" id="dEE-j9-ZAS"/>
+                    <constraint firstItem="0lt-cd-gHg" firstAttribute="leading" secondItem="JLo-Ug-QLu" secondAttribute="trailing" constant="4" id="eES-72-N3e"/>
                     <constraint firstAttribute="bottom" secondItem="wzc-ef-zi3" secondAttribute="bottom" constant="8" id="mLM-TP-0hY"/>
+                    <constraint firstAttribute="trailing" secondItem="0lt-cd-gHg" secondAttribute="trailing" constant="8" id="n3q-Zg-1lI"/>
                     <constraint firstAttribute="trailing" secondItem="icb-ca-aMq" secondAttribute="trailing" constant="8" id="o5g-7S-fBg"/>
+                    <constraint firstAttribute="bottom" secondItem="JLo-Ug-QLu" secondAttribute="bottom" constant="8" id="oMO-xj-OUa"/>
                     <constraint firstItem="ZIY-BG-4Ih" firstAttribute="top" secondItem="W6Q-ML-LGh" secondAttribute="bottom" constant="8" id="xGp-pp-xa9"/>
                     <constraint firstItem="icb-ca-aMq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="zU8-HE-Rrl"/>
                 </constraints>
@@ -71,7 +81,10 @@
                 <outlet property="repoImageView" destination="wzc-ef-zi3" id="ZRt-to-F4a"/>
                 <outlet property="repoNameLabel" destination="W6Q-ML-LGh" id="RXV-SZ-PSe"/>
             </connections>
-            <point key="canvasLocation" x="132" y="119"/>
+            <point key="canvasLocation" x="131.8840579710145" y="118.52678571428571"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
+    </resources>
 </document>

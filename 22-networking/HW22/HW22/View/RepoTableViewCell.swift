@@ -15,9 +15,10 @@ class RepoTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     
-    func setup(name: String, description: String, imgURL: String) {
+    func setup(name: String, description: String, rating: Int, imgURL: String) {
         repoNameLabel.text = name
         descriptionLabel.text = description
+        ratingLabel.text = rating.description
         guard let url = URL(string: imgURL) else { return }
         repoImageView.load(url: url)
     }
