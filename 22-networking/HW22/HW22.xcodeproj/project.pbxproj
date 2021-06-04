@@ -65,8 +65,8 @@
 			isa = PBXGroup;
 			children = (
 				AB0625A9266824E30034A7A1 /* AppDelegate.swift */,
+				AB97755D266A1905002E0FFA /* Model */,
 				AB0625AB266824E30034A7A1 /* SceneDelegate.swift */,
-				AB0625D5266A16560034A7A1 /* Model */,
 				AB0625D6266A16680034A7A1 /* View */,
 				AB0625D7266A166D0034A7A1 /* Controller */,
 				AB0625D4266A163E0034A7A1 /* Network */,
@@ -82,15 +82,6 @@
 			children = (
 				AB0625C92668299A0034A7A1 /* Network.swift */,
 			);
-			path = Network;
-			sourceTree = "<group>";
-		};
-		AB0625D5266A16560034A7A1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				AB0625CC2668E7900034A7A1 /* Repositories.swift */,
-			);
-			name = Model;
 			path = Network;
 			sourceTree = "<group>";
 		};
@@ -110,6 +101,14 @@
 				AB0625C6266825F80034A7A1 /* RepoTableViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		AB97755D266A1905002E0FFA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AB0625CC2668E7900034A7A1 /* Repositories.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
