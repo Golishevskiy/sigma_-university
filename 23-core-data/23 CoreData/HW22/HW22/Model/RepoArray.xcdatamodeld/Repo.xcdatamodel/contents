@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D64" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Repo" representedClassName="Repo" syncable="YES">
+        <attribute name="fullName" optional="YES" attributeType="String"/>
+        <attribute name="htmlURL" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="itemDescription" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="stars" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="repoArray" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RepoArray" inverseName="repo" inverseEntity="RepoArray"/>
+    </entity>
+    <entity name="RepoArray" representedClassName="RepoArray" syncable="YES">
+        <attribute name="searchText" optional="YES" attributeType="String"/>
+        <relationship name="repo" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Repo" inverseName="repoArray" inverseEntity="Repo"/>
+    </entity>
+    <elements>
+        <element name="Repo" positionX="-100.28125" positionY="189.37109375" width="128" height="134"/>
+        <element name="RepoArray" positionX="-36" positionY="45" width="128" height="59"/>
+    </elements>
+</model>
