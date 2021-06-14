@@ -1,9 +1,8 @@
-# !/bin/sh
+#!/bin/bash
 
-#  MyScript.sh
+#  Script.sh
 #  HW24
 #
 #  Created by Petro Golishevskiy on 14.06.2021.
-#
- 
-echo "Random string is $1"
+#  
+echo "Array: $1"

@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
          <BreakpointContent
             uuid = "8DCF16A1-F0AA-40D4-9346-F4773CFFED3E"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             nameForDebugger = "SymbolicBreakPoint"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -44,7 +44,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3D568D85-4721-43FB-897A-2974B2A26A89"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             nameForDebugger = "firstBreakpoint"
             condition = "array.count % 2 == 0"
             ignoreCount = "0"
@@ -115,7 +115,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.SymbolicBreakpoint">
          <BreakpointContent
             uuid = "7C2A3A9F-5EC5-4C96-A872-8DC8BBAFE45D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             symbolName = "-[UIViewController viewDidLoad]"
@@ -140,6 +140,39 @@
                   offsetFromSymbolStart = "0">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0AD60B45-EE7A-467C-959C-CC654710C69B"
+            shouldBeEnabled = "Yes"
+            condition = "array.count &gt; 5"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HW24/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "fillArray()"
+            landmarkType = "7">
+            <Actions>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.Sound">
+                  <ActionContent
+                     soundName = "Hero">
+                  </ActionContent>
+               </BreakpointActionProxy>
+               <BreakpointActionProxy
+                  ActionExtensionID = "Xcode.BreakpointAction.ShellCommand">
+                  <ActionContent
+                     command = "/Users/petro/Desktop/Sigma/24-debugging/HW24/Script.sh"
+                     arguments = "@array@"
+                     waitUntilDone = "YES">
+                  </ActionContent>
+               </BreakpointActionProxy>
+            </Actions>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
