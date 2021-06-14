@@ -16,10 +16,11 @@ class ViewController: UIViewController {
         fillArray()
     }
     
-    private func fillArray() {
+    func fillArray() {
         for _ in 1...100 {
             let someString = randomString()
             array.append(someString)
+            print("----")
         }
     }
     

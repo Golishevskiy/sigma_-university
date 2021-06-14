@@ -1,0 +1,13 @@
+# !/bin/sh
+
+#  MyScript.sh
+#  HW24
+#
+#  Created by Petro Golishevskiy on 14.06.2021.
+#
+
+tell application "Terminal"
+            do script "/Users/student/Documents/2048.sh"
+            activate
+end tell
+ 
