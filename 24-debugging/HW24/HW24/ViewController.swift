@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     var array = [String]()
     
     override func viewDidLoad() {
@@ -26,7 +26,6 @@ class ViewController: UIViewController {
     private func randomString() -> String {
         let randomInt = Int.random(in: 0..<20)
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_)(*?:%;№"
-        return String((0..<randomInt).map{ _ in letters.randomElement()! })
+        return String((0..<randomInt).map{ _ in letters.randomElement()!})
     }
 }
-
