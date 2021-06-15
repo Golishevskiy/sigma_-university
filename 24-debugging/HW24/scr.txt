@@ -1,0 +1,10 @@
+# !/bin/sh
+
+#  MyScript.sh
+#  HW24
+#
+#  Created by Petro Golishevskiy on 14.06.2021.
+#
+
+echo "print from script"
+ 
