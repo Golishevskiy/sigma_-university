@@ -17,7 +17,7 @@ enum BgColor: String {
     case green = "26BA67"
 }
 
-class SharedButton: UIButton {
+class MenuButton: UIButton {
     
     let label: UILabel = {
         let label = UILabel()
@@ -62,7 +62,14 @@ class SharedButton: UIButton {
         self.heightAnchor.constraint(equalToConstant: diameter).isActive = true
         shadow ? setShadow() : nil
         
+//        setupConstraint()
+        
     }
+    
+//    private func setupConstraint() {
+//        self.rightAnchor.constraint(equalTo: superview!.rightAnchor, constant: -19).isActive = true
+//        self.bottomAnchor.constraint(equalTo: superview!.bottomAnchor, constant: -19).isActive = true
+//    }
     
     private func setShadow() {
         self.layer.shadowOffset = CGSize(width: 0, height: 16)

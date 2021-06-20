@@ -24,7 +24,6 @@ class BankCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         rootView.layer.cornerRadius = 10
-//        rootView.layer.masksToBounds = true
         rootView.backgroundColor = .yellow
         
         rootView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]

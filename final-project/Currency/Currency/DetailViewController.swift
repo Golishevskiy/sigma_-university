@@ -7,23 +7,23 @@
 
 import UIKit
 
-class DetailViewController: UITableViewController {
+class DetailViewController: UIViewController {
     
     var bank: Exchanger?
     
-    let phoneButton = SharedButton(diameter: 60,
+    let phoneButton = MenuButton(diameter: 60,
                                    imageName: "phone",
                                    tintColor: .grey,
                                    bgColor: .white)
-    let locationButton = SharedButton(diameter: 60,
+    let locationButton = MenuButton(diameter: 60,
                                       imageName: "location",
                                       tintColor: .grey,
                                       bgColor: .white)
-    let linkButton = SharedButton(diameter: 60,
+    let linkButton = MenuButton(diameter: 60,
                                   imageName: "link",
                                   tintColor: .grey,
                                   bgColor: .white)
-    let button = SharedButton(diameter: 60,
+    let button = MenuButton(diameter: 60,
                               imageName: "menu2",
                               tintColor: .white,
                               bgColor: .green,
@@ -33,39 +33,61 @@ class DetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = bank?.name
+        setupButtons()
+    }
+
+    @objc func menuClicked(sender: UIButton) {
+        
+        switch sender.tag {
+        case 0:
+            if let url = URL(string: self.bank!.website) {
+                UIApplication.shared.open(url)
+            }
+        case 1:
+            let map = MapViewController()
+            self.navigationController?.pushViewController(map, animated: true)
+        case 2:
+            if let url = URL(string: "tel://0443332211") {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        case 3:
+            showMenu()
+        default:
+            print("default")
+        }
+    }
+    
+    private func setupButtons() {
+        phoneButton.tag = 2
+        locationButton.tag = 1
+        linkButton.tag = 0
+        button.tag = 3
+        
+        view.addSubview(phoneButton)
+        view.addSubview(locationButton)
+        view.addSubview(linkButton)
+        view.addSubview(button)
         
         button.addTarget(self, action: #selector(menuClicked), for: .touchUpInside)
+        phoneButton.addTarget(self, action: #selector(menuClicked), for: .touchUpInside)
+        linkButton.addTarget(self, action: #selector(menuClicked), for: .touchUpInside)
+        locationButton.addTarget(self, action: #selector(menuClicked), for: .touchUpInside)
         
-        self.navigationController?.view.addSubview(phoneButton)
-        self.navigationController?.view.addSubview(locationButton)
-        self.navigationController?.view.addSubview(linkButton)
-        self.navigationController?.view.addSubview(button)
-                
         phoneButton.isHidden = true
         locationButton.isHidden = true
         linkButton.isHidden = true
-        
-//        if let nav = self.navigationController {
-//            button.trailingAnchor.constraint(equalTo: nav.view.trailingAnchor, constant: -19).isActive = true
-//            button.bottomAnchor.constraint(equalTo: nav.view.bottomAnchor, constant: -19).isActive = true
-//
-//            phoneButton.trailingAnchor.constraint(equalTo: nav.view.trailingAnchor, constant: -19).isActive = true
-//            phoneButton.bottomAnchor.constraint(equalTo: nav.view.bottomAnchor, constant: -19).isActive = true
-//
-//            locationButton.trailingAnchor.constraint(equalTo: nav.view.trailingAnchor, constant: -19).isActive = true
-//            locationButton.bottomAnchor.constraint(equalTo: nav.view.bottomAnchor, constant: -19).isActive = true
-//
-//            linkButton.trailingAnchor.constraint(equalTo: nav.view.trailingAnchor, constant: -19).isActive = true
-//            linkButton.bottomAnchor.constraint(equalTo: nav.view.bottomAnchor, constant: -19).isActive = true
-//        }
-        
-        
-    }
 
-    
-    @objc func menuClicked() {
-        tableView.alpha = 0.5
-        showMenu()
+        button.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -19).isActive = true
+        button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -19).isActive = true
+        
+        phoneButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19).isActive = true
+        phoneButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -19).isActive = true
+        
+        locationButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19).isActive = true
+        locationButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -19).isActive = true
+        
+        linkButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19).isActive = true
+        linkButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -19).isActive = true
     }
     
     private func showMenu() {
@@ -74,16 +96,23 @@ class DetailViewController: UITableViewController {
                 self.phoneButton.isHidden = false
                 self.locationButton.isHidden = false
                 self.linkButton.isHidden = false
-                
+
+                self.view.backgroundColor = .black
+                self.view.subviews[0].alpha = 0.6
+
                 self.phoneButton.transform = CGAffineTransform(translationX: .zero, y: -(self.phoneButton.frame.width + 12))
                 self.locationButton.transform = CGAffineTransform(translationX: .zero, y: -((self.phoneButton.frame.width + 12) * 2))
                 self.linkButton.transform = CGAffineTransform(translationX: .zero, y: -((self.phoneButton.frame.width + 12) * 3))
-                
+
                 self.button.setImage(UIImage(named: "close"), for: .normal)
                 self.button.setImageTintColor(UIColor(hexFromString: "FFFFFF"))
             }
         } else {
             UIView.animate(withDuration: 0.3) {
+
+                self.view.backgroundColor = .clear
+                self.view.subviews[0].alpha = 1
+
                 self.phoneButton.transform = CGAffineTransform(translationX: .zero, y: (self.phoneButton.frame.width + 12))
                 self.locationButton.transform = CGAffineTransform(translationX: .zero, y: ((self.phoneButton.frame.width + 12) * 2))
                 self.linkButton.transform = CGAffineTransform(translationX: .zero, y: ((self.phoneButton.frame.width + 12) * 3))
@@ -97,15 +126,21 @@ class DetailViewController: UITableViewController {
         }
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    @IBAction func sharedButton(_ sender: UIBarButtonItem) {
+        print("sharedButton")
+    }
+}
+
+extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         guard let bank = bank else { return UITableViewCell() }
         cell.textLabel?.text = String(bank.rates.usd.buy)
-        
         return cell
     }
 }
