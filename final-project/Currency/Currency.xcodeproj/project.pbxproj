@@ -29,9 +29,15 @@
 		AB9AF869267A78B700E03558 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9AF868267A78B700E03558 /* Network.swift */; };
 		AB9AF87A267B3D6A00E03558 /* BankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9AF878267B3D6A00E03558 /* BankCell.swift */; };
 		AB9AF87B267B3D6A00E03558 /* BankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB9AF879267B3D6A00E03558 /* BankCell.xib */; };
+		ABA79D7C2680862100147F47 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA79D7B2680862100147F47 /* Router.swift */; };
 		ABC87AE6265EF36F003F9535 /* PageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC87AE5265EF36F003F9535 /* PageVC.swift */; };
 		ABC87AEB265FBF81003F9535 /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC87AEA265FBF80003F9535 /* DoneButton.swift */; };
 		ABC87AF0265FC01A003F9535 /* testVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC87AEF265FC01A003F9535 /* testVCViewController.swift */; };
+		ABF02E31267FA15C00054974 /* PriceCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF02E2F267FA15C00054974 /* PriceCurrencyCell.swift */; };
+		ABF02E32267FA15C00054974 /* PriceCurrencyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF02E30267FA15C00054974 /* PriceCurrencyCell.xib */; };
+		ABF02E37267FA78200054974 /* Date+ConvertFromUnix.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF02E36267FA78200054974 /* Date+ConvertFromUnix.swift */; };
+		ABF02E7A26806C5400054974 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF02E7926806C5400054974 /* AlertView.swift */; };
+		ABF02E7F26806C6500054974 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF02E7E26806C6500054974 /* AlertView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,9 +86,15 @@
 		AB9AF868267A78B700E03558 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		AB9AF878267B3D6A00E03558 /* BankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCell.swift; sourceTree = "<group>"; };
 		AB9AF879267B3D6A00E03558 /* BankCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BankCell.xib; sourceTree = "<group>"; };
+		ABA79D7B2680862100147F47 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		ABC87AE5265EF36F003F9535 /* PageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageVC.swift; sourceTree = "<group>"; };
 		ABC87AEA265FBF80003F9535 /* DoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
 		ABC87AEF265FC01A003F9535 /* testVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVCViewController.swift; sourceTree = "<group>"; };
+		ABF02E2F267FA15C00054974 /* PriceCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCurrencyCell.swift; sourceTree = "<group>"; };
+		ABF02E30267FA15C00054974 /* PriceCurrencyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PriceCurrencyCell.xib; sourceTree = "<group>"; };
+		ABF02E36267FA78200054974 /* Date+ConvertFromUnix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ConvertFromUnix.swift"; sourceTree = "<group>"; };
+		ABF02E7926806C5400054974 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		ABF02E7E26806C6500054974 /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +205,7 @@
 			children = (
 				AB754C75267BEE260003F3E8 /* CustomImageView.swift */,
 				AB479977267DF25A00725AA5 /* UIColor+hexString.swift */,
+				ABF02E36267FA78200054974 /* Date+ConvertFromUnix.swift */,
 				AB47996F267DF1B900725AA5 /* UIButton+ImageTintColor.swift */,
 			);
 			path = Extension;
@@ -211,6 +224,7 @@
 			children = (
 				AB9AF85F267A77FE00E03558 /* BankModel.swift */,
 				AB76B3C4267F448D0023909C /* BankModelFull.swift */,
+				ABA79D7B2680862100147F47 /* Router.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -229,8 +243,12 @@
 				AB754C6C267BE7C60003F3E8 /* StatusView.swift */,
 				AB479964267DDDC100725AA5 /* MenuButton.swift */,
 				ABC87AEA265FBF80003F9535 /* DoneButton.swift */,
+				ABF02E7926806C5400054974 /* AlertView.swift */,
+				ABF02E7E26806C6500054974 /* AlertView.xib */,
 				AB9AF878267B3D6A00E03558 /* BankCell.swift */,
 				AB9AF879267B3D6A00E03558 /* BankCell.xib */,
+				ABF02E2F267FA15C00054974 /* PriceCurrencyCell.swift */,
+				ABF02E30267FA15C00054974 /* PriceCurrencyCell.xib */,
 				AB73789E264D687300FBB92F /* Main.storyboard */,
 			);
 			path = View;
@@ -342,6 +360,8 @@
 				AB7378A5264D687500FBB92F /* LaunchScreen.storyboard in Resources */,
 				AB9AF87B267B3D6A00E03558 /* BankCell.xib in Resources */,
 				AB7378A2264D687500FBB92F /* Assets.xcassets in Resources */,
+				ABF02E7F26806C6500054974 /* AlertView.xib in Resources */,
+				ABF02E32267FA15C00054974 /* PriceCurrencyCell.xib in Resources */,
 				AB7378A0264D687300FBB92F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,14 +387,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABA79D7C2680862100147F47 /* Router.swift in Sources */,
 				AB479965267DDDC200725AA5 /* MenuButton.swift in Sources */,
 				AB76B3CB267F49420023909C /* PrepareData.swift in Sources */,
+				ABF02E7A26806C5400054974 /* AlertView.swift in Sources */,
 				AB754C7E267BF10F0003F3E8 /* DetailViewController.swift in Sources */,
+				ABF02E37267FA78200054974 /* Date+ConvertFromUnix.swift in Sources */,
 				ABC87AEB265FBF81003F9535 /* DoneButton.swift in Sources */,
 				AB754C76267BEE260003F3E8 /* CustomImageView.swift in Sources */,
 				ABC87AF0265FC01A003F9535 /* testVCViewController.swift in Sources */,
 				AB754C6D267BE7C60003F3E8 /* StatusView.swift in Sources */,
 				AB9AF869267A78B700E03558 /* Network.swift in Sources */,
+				ABF02E31267FA15C00054974 /* PriceCurrencyCell.swift in Sources */,
 				AB754C61267BAE6E0003F3E8 /* MapViewController.swift in Sources */,
 				AB9AF860267A77FE00E03558 /* BankModel.swift in Sources */,
 				AB9AF87A267B3D6A00E03558 /* BankCell.swift in Sources */,

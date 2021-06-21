@@ -17,7 +17,7 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        locationManager.delegate = self
+        locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = kCLDistanceFilterNone
@@ -47,12 +47,12 @@ class MapViewController: UIViewController {
     }
 }
 
-//extension MapViewController: CLLocationManagerDelegate {
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        if let location = locations.last?.coordinate {
-//            let region = MKCoordinateRegion(center: location, latitudinalMeters: 2000, longitudinalMeters: 200)
-//            mapView.setRegion(region, animated: true)
-//        }
-//    }
-//}
+extension MapViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last?.coordinate {
+            let region = MKCoordinateRegion(center: location, latitudinalMeters: 2000, longitudinalMeters: 200)
+            mapView.setRegion(region, animated: true)
+        }
+    }
+}
 

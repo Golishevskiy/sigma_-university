@@ -27,14 +27,13 @@ class BankCell: UITableViewCell {
         rootView.backgroundColor = .yellow
         
         rootView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        
         setupImage()
     }
     
-    func fillIn(bank: Exchanger) {
-        logoImageView.loadImageUsingUrlString(urlString: bank.image)
+    func fillIn(bank: Bank) {
+        logoImageView.loadImageUsingUrlString(urlString: bank.imageUrl)
         bankNameLabel.text = bank.name
-        phoneLabel.text = "0443292837"
+//        phoneLabel.text = "0443292837"
     }
     
     func setupImage() {

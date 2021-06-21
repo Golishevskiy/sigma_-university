@@ -10,18 +10,23 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    private var selectedBank: Exchanger?
+    let router = Router.shared
+    private var selectedBank: Bank?
     let network = Network.shared
     let transform = PrepareData.shared
     let statusView = StatusView()
-    var exchangers = [Exchanger]() {
+    
+    var banks = [Bank]() {
         didSet {
             tableView.reloadData()
-            testBank = transform.prepare(bankServer: exchangers[0])
         }
     }
     
-    var testBank: Bank!
+    var exchangers = [Exchanger]() {
+        didSet {
+            prepareData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,14 +34,16 @@ class ViewController: UIViewController {
         tableView.register(UINib(nibName: "BankCell", bundle: nil), forCellReuseIdentifier: "cell")
         
         statusView.present = true
-        network.getData { (exchangers) in
-            self.exchangers = exchangers
-            self.statusView.present = false
+        network.getData { [weak self] (exchangers) in
+            self?.exchangers = exchangers
+            self?.statusView.present = false
         }
     }
     
     private func prepareData() {
-        
+        for bank in exchangers {
+            banks.append(transform.prepare(bankServer: bank))
+        }
     }
 }
 
@@ -48,21 +55,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! BankCell
-        cell.fillIn(bank: exchangers[indexPath.row])
-        cell.actionClosure = { (tag) in
+        cell.fillIn(bank: banks[indexPath.row])
+        cell.actionClosure = { [weak self] (tag) in
+            guard let self = self else { return }
             switch tag {
             case 0:
-                if let url = URL(string: self.exchangers[indexPath.row].website) {
-                    UIApplication.shared.open(url)
-                }
+                self.router.toSafary(link: self.banks[indexPath.row].webSite)
             case 1:
-                let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-                viewController.searchName = self.testBank.city + " " + self.testBank.street
-                self.navigationController?.pushViewController(viewController, animated: true)
+                self.router.toMap(address: self.banks[indexPath.row].city + " " + self.banks[indexPath.row].street, navigation: self.navigationController)
             case 2:
-                if let url = URL(string: "tel://0443332211") {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                }
+                self.router.toCall(number: self.banks[indexPath.row].phone)
             default:
                 print("default")
             }
@@ -71,7 +73,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedBank = exchangers[indexPath.row]
+        self.selectedBank = banks[indexPath.row]
         performSegue(withIdentifier: "showDetail", sender: nil)
         print("\(exchangers[indexPath.row].name)")
     }
@@ -81,15 +83,3 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         passing.bank = selectedBank
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-

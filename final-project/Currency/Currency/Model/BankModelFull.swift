@@ -7,10 +7,6 @@
 
 import Foundation
 
-//struct BankModelFull {
-//    var banks: [Bank]
-//}
-
 struct Bank {
     var name: String
     var city: String
@@ -22,17 +18,25 @@ struct Bank {
     var imageUrl: String
     var webSite: String
     var internetBanking: String
+    var updateTime: Int
     var prices: [Prices]
 }
 
 struct Prices {
-    var USD: ExchangeRate
-    var PLN: ExchangeRate
-    var EUR: ExchangeRate
-    var GBF: ExchangeRate
-    var RUR: ExchangeRate
-    var CHF: ExchangeRate
+    var currency: String
+    var purchase: String
+    var sale: String
 }
+
+
+//struct Prices {
+//    var USD: ExchangeRate
+//    var PLN: ExchangeRate
+//    var EUR: ExchangeRate
+//    var GBF: ExchangeRate
+//    var RUR: ExchangeRate
+//    var CHF: ExchangeRate
+//}
 
 struct ExchangeRate {
     var purchase: String
