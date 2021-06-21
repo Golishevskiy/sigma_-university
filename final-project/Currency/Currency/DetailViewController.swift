@@ -93,7 +93,7 @@ class DetailViewController: UIViewController {
         nameLabel.text = bank.name
         logoImageView.loadImageUsingUrlString(urlString: bank.imageUrl)
         webSiteLabel.text = bank.webSite
-        addressLabel.text = "\(bank.city) + \(bank.street)"
+        addressLabel.text = "\(bank.city), \(bank.street)"
         phoneLabel.text = bank.supportPhone
         supportPhoneLabel.text = bank.phone
         worldSupportPhonelabel.text = bank.worldSupportPhone
@@ -171,13 +171,19 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func sharedButton(_ sender: UIBarButtonItem) {
-        alert.isHidden = false
-        view.backgroundColor = .black
-        view.subviews[0].alpha = 0.6
-        button.isHidden = true
-        print("sharedButton")
+        if alert.isHidden {
+            alert.isHidden = false
+            view.backgroundColor = .black
+            view.subviews[0].alpha = 0.6
+            button.isHidden = true
+        } else {
+            alert.isHidden = true
+            view.backgroundColor = .clear
+            view.subviews[0].alpha = 1
+            button.isHidden = false
+        }
+           
         guard let bank = bank else { return }
-        
         alert.fillIn(bank: bank)
         alert.callBack = {
             let activityController = UIActivityViewController(activityItems: [self.bank],

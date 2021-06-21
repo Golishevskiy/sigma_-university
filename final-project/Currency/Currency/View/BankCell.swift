@@ -23,10 +23,25 @@ class BankCell: UITableViewCell {
     var actionClosure: ((_ buttonTag: Int) -> Void)?
     override func awakeFromNib() {
         super.awakeFromNib()
-        rootView.layer.cornerRadius = 10
-        rootView.backgroundColor = .yellow
         
-        rootView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+        
+
+
+        let mask = rootView.layer.mask
+        bottomView.layer.mask = mask
+        rootView.layer.cornerRadius = 10
+        rootView.clipsToBounds = true
+        rootView.layer.masksToBounds = false
+        rootView.layer.shadowRadius = 5
+//        rootView.layer.shadowOffset
+        rootView.layer.shadowOpacity = 0.3
+        rootView.layer.shadowColor = UIColor.darkGray.cgColor
+
+        rootView.layer.shouldRasterize = true
+
+        
+            
+//        rootView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         setupImage()
     }
     
