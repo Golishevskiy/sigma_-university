@@ -198,7 +198,7 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let bank = bank else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PriceCurrencyCell
-        cell.fillIn(title: bank.prices[indexPath.row].currency, description: "Долар США", buyLabel: bank.prices[indexPath.row].purchase, selLabel: bank.prices[indexPath.row].sale)
+        cell.fillIn(title: bank.prices[indexPath.row].currency, description: "Долар США", buyLabel: bank.prices[indexPath.row].buy, selLabel: bank.prices[indexPath.row].sal)
         return cell
     }
 }

@@ -46,18 +46,18 @@ class AlertView: UIView {
         nameLabel.text = bank.name
         addressLabel.text = bank.city
         
-        usdBuyLabel.text = bank.prices[0].purchase
-        usdSelLabel.text = bank.prices[0].sale
-        plnBuyLabel.text = bank.prices[1].purchase
-        plnSelLabel.text = bank.prices[1].sale
-        rurBuyLabel.text = bank.prices[2].purchase
-        rurSelLabel.text = bank.prices[2].sale
-        eurBuyLabel.text = bank.prices[3].purchase
-        eurSelLabel.text = bank.prices[3].sale
-        chfBuyLabel.text = bank.prices[4].purchase
-        chfSelLabel.text = bank.prices[4].sale
-        gbpBuyLabel.text = bank.prices[5].purchase
-        gbpSelLabel.text = bank.prices[5].sale
+        usdBuyLabel.text = bank.prices[0].buy
+        usdSelLabel.text = bank.prices[0].sal
+        plnBuyLabel.text = bank.prices[1].buy
+        plnSelLabel.text = bank.prices[1].sal
+        rurBuyLabel.text = bank.prices[2].buy
+        rurSelLabel.text = bank.prices[2].sal
+        eurBuyLabel.text = bank.prices[3].buy
+        eurSelLabel.text = bank.prices[3].sal
+        chfBuyLabel.text = bank.prices[4].buy
+        chfSelLabel.text = bank.prices[4].sal
+        gbpBuyLabel.text = bank.prices[5].buy
+        gbpSelLabel.text = bank.prices[5].sal
     }
     
     @IBAction func sharedButton(_ sender: UIButton) {

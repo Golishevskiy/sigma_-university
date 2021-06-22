@@ -28,6 +28,5 @@ class StartButton: UIButton {
         layer.shadowOpacity = 4.0
         layer.shadowRadius = 6
         self.translatesAutoresizingMaskIntoConstraints = false
-//        layer.masksToBounds = false
     }
 }

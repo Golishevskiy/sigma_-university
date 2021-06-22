@@ -29,14 +29,15 @@
 		AB9AF869267A78B700E03558 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9AF868267A78B700E03558 /* Network.swift */; };
 		AB9AF87A267B3D6A00E03558 /* BankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9AF878267B3D6A00E03558 /* BankCell.swift */; };
 		AB9AF87B267B3D6A00E03558 /* BankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB9AF879267B3D6A00E03558 /* BankCell.xib */; };
+		AB9F149E26823E1000DE9614 /* DbBank.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB9F149C26823E1000DE9614 /* DbBank.xcdatamodeld */; };
+		AB9F14B126824A6F00DE9614 /* DbBank+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9F14AF26824A6F00DE9614 /* DbBank+CoreDataClass.swift */; };
+		AB9F14B226824A6F00DE9614 /* DbBank+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9F14B026824A6F00DE9614 /* DbBank+CoreDataProperties.swift */; };
 		ABA79D7C2680862100147F47 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA79D7B2680862100147F47 /* Router.swift */; };
 		ABA79D842680DAD600147F47 /* MapLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA79D832680DAD600147F47 /* MapLayer.swift */; };
 		ABA79D9B26811B4D00147F47 /* DBLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA79D9A26811B4D00147F47 /* DBLayer.swift */; };
 		ABC87AE6265EF36F003F9535 /* PageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC87AE5265EF36F003F9535 /* PageVC.swift */; };
 		ABC87AEB265FBF81003F9535 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC87AEA265FBF80003F9535 /* StartButton.swift */; };
-		ABC87AF0265FC01A003F9535 /* testVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC87AEF265FC01A003F9535 /* testVCViewController.swift */; };
 		ABF02E31267FA15C00054974 /* PriceCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF02E2F267FA15C00054974 /* PriceCurrencyCell.swift */; };
-		ABF02E32267FA15C00054974 /* PriceCurrencyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF02E30267FA15C00054974 /* PriceCurrencyCell.xib */; };
 		ABF02E37267FA78200054974 /* Date+ConvertFromUnix.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF02E36267FA78200054974 /* Date+ConvertFromUnix.swift */; };
 		ABF02E7A26806C5400054974 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF02E7926806C5400054974 /* AlertView.swift */; };
 		ABF02E7F26806C6500054974 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF02E7E26806C6500054974 /* AlertView.xib */; };
@@ -88,14 +89,15 @@
 		AB9AF868267A78B700E03558 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		AB9AF878267B3D6A00E03558 /* BankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCell.swift; sourceTree = "<group>"; };
 		AB9AF879267B3D6A00E03558 /* BankCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BankCell.xib; sourceTree = "<group>"; };
+		AB9F149D26823E1000DE9614 /* DbBank.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DbBank.xcdatamodel; sourceTree = "<group>"; };
+		AB9F14AF26824A6F00DE9614 /* DbBank+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DbBank+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AB9F14B026824A6F00DE9614 /* DbBank+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DbBank+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		ABA79D7B2680862100147F47 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		ABA79D832680DAD600147F47 /* MapLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLayer.swift; sourceTree = "<group>"; };
 		ABA79D9A26811B4D00147F47 /* DBLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBLayer.swift; sourceTree = "<group>"; };
 		ABC87AE5265EF36F003F9535 /* PageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageVC.swift; sourceTree = "<group>"; };
 		ABC87AEA265FBF80003F9535 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
-		ABC87AEF265FC01A003F9535 /* testVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVCViewController.swift; sourceTree = "<group>"; };
 		ABF02E2F267FA15C00054974 /* PriceCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCurrencyCell.swift; sourceTree = "<group>"; };
-		ABF02E30267FA15C00054974 /* PriceCurrencyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PriceCurrencyCell.xib; sourceTree = "<group>"; };
 		ABF02E36267FA78200054974 /* Date+ConvertFromUnix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ConvertFromUnix.swift"; sourceTree = "<group>"; };
 		ABF02E7926806C5400054974 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		ABF02E7E26806C6500054974 /* AlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
@@ -130,6 +132,8 @@
 		AB73788C264D687300FBB92F = {
 			isa = PBXGroup;
 			children = (
+				AB9F14AF26824A6F00DE9614 /* DbBank+CoreDataClass.swift */,
+				AB9F14B026824A6F00DE9614 /* DbBank+CoreDataProperties.swift */,
 				AB737897264D687300FBB92F /* Currency */,
 				AB7378AE264D687500FBB92F /* CurrencyTests */,
 				AB7378B9264D687500FBB92F /* CurrencyUITests */,
@@ -153,14 +157,12 @@
 			children = (
 				AB737898264D687300FBB92F /* AppDelegate.swift */,
 				AB73789A264D687300FBB92F /* SceneDelegate.swift */,
-				ABC87AE5265EF36F003F9535 /* PageVC.swift */,
 				AB9AF867267A785F00E03558 /* Services */,
 				AB9AF85E267A77D200E03558 /* Model */,
 				AB9AF86E267B38CE00E03558 /* View */,
 				AB754C4F267B98DE0003F3E8 /* Controller */,
 				AB76B3C9267F49160023909C /* Support */,
 				AB754C74267BEDEC0003F3E8 /* Extension */,
-				ABC87AEF265FC01A003F9535 /* testVCViewController.swift */,
 				AB7378A1264D687500FBB92F /* Assets.xcassets */,
 				AB7378A3264D687500FBB92F /* LaunchScreen.storyboard */,
 				AB7378A6264D687500FBB92F /* Info.plist */,
@@ -192,6 +194,7 @@
 				AB73789C264D687300FBB92F /* ViewController.swift */,
 				AB754C7D267BF10F0003F3E8 /* DetailViewController.swift */,
 				AB754C60267BAE6E0003F3E8 /* MapViewController.swift */,
+				ABC87AE5265EF36F003F9535 /* PageVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			children = (
 				AB9AF85F267A77FE00E03558 /* BankModel.swift */,
 				AB76B3C4267F448D0023909C /* BankModelFull.swift */,
+				AB9F149C26823E1000DE9614 /* DbBank.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,12 +251,10 @@
 			isa = PBXGroup;
 			children = (
 				AB754C6C267BE7C60003F3E8 /* StatusView.swift */,
-				AB479964267DDDC100725AA5 /* MenuButton.swift */,
-				ABC87AEA265FBF80003F9535 /* StartButton.swift */,
+				AB9F142F2681F0FD00DE9614 /* Buttons */,
 				AB9F14222681EE6300DE9614 /* Alert */,
 				AB9F141E2681EE5000DE9614 /* Bank */,
 				ABF02E2F267FA15C00054974 /* PriceCurrencyCell.swift */,
-				ABF02E30267FA15C00054974 /* PriceCurrencyCell.xib */,
 				AB73789E264D687300FBB92F /* Main.storyboard */,
 			);
 			path = View;
@@ -274,6 +276,15 @@
 				ABF02E7E26806C6500054974 /* AlertView.xib */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		AB9F142F2681F0FD00DE9614 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				AB479964267DDDC100725AA5 /* MenuButton.swift */,
+				ABC87AEA265FBF80003F9535 /* StartButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,7 +394,6 @@
 				AB9AF87B267B3D6A00E03558 /* BankCell.xib in Resources */,
 				AB7378A2264D687500FBB92F /* Assets.xcassets in Resources */,
 				ABF02E7F26806C6500054974 /* AlertView.xib in Resources */,
-				ABF02E32267FA15C00054974 /* PriceCurrencyCell.xib in Resources */,
 				AB7378A0264D687300FBB92F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,13 +424,15 @@
 				AB479965267DDDC200725AA5 /* MenuButton.swift in Sources */,
 				AB76B3CB267F49420023909C /* PrepareData.swift in Sources */,
 				ABF02E7A26806C5400054974 /* AlertView.swift in Sources */,
+				AB9F14B226824A6F00DE9614 /* DbBank+CoreDataProperties.swift in Sources */,
+				AB9F149E26823E1000DE9614 /* DbBank.xcdatamodeld in Sources */,
 				AB754C7E267BF10F0003F3E8 /* DetailViewController.swift in Sources */,
 				ABF02E37267FA78200054974 /* Date+ConvertFromUnix.swift in Sources */,
 				ABC87AEB265FBF81003F9535 /* StartButton.swift in Sources */,
 				AB754C76267BEE260003F3E8 /* CustomImageView.swift in Sources */,
-				ABC87AF0265FC01A003F9535 /* testVCViewController.swift in Sources */,
 				AB754C6D267BE7C60003F3E8 /* StatusView.swift in Sources */,
 				AB9AF869267A78B700E03558 /* Network.swift in Sources */,
+				AB9F14B126824A6F00DE9614 /* DbBank+CoreDataClass.swift in Sources */,
 				ABF02E31267FA15C00054974 /* PriceCurrencyCell.swift in Sources */,
 				AB754C61267BAE6E0003F3E8 /* MapViewController.swift in Sources */,
 				ABA79D842680DAD600147F47 /* MapLayer.swift in Sources */,
@@ -761,6 +773,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AB9F149C26823E1000DE9614 /* DbBank.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AB9F149D26823E1000DE9614 /* DbBank.xcdatamodel */,
+			);
+			currentVersion = AB9F149D26823E1000DE9614 /* DbBank.xcdatamodel */;
+			path = DbBank.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AB73788D264D687300FBB92F /* Project object */;
 }

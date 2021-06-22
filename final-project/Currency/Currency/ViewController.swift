@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     let router = Router.shared
     private var selectedBank: Bank?
     let network = Network.shared
+    let db = DBLayer.shared
     let transform = PrepareData.shared
     let statusView = StatusView()
     
@@ -25,6 +26,7 @@ class ViewController: UIViewController {
     var exchangers = [Exchanger]() {
         didSet {
             prepareData()
+            db.save(bank: banks[0])
         }
     }
     
@@ -38,6 +40,10 @@ class ViewController: UIViewController {
             self?.exchangers = exchangers
             self?.statusView.present = false
         }
+        
+        let res = db.fetchRepos()
+        
+        db.delete()
     }
     
     private func prepareData() {
@@ -45,26 +51,7 @@ class ViewController: UIViewController {
             banks.append(transform.prepare(bankServer: bank))
         }
     }
-    
-    var searchController: UISearchController = {
-        let controller = UISearchController(searchResultsController: nil)
-//        controller.delegate = self
-//        controller.searchBar.delegate = self
-//        controller.searchResultsUpdater = self
-        controller.dimsBackgroundDuringPresentation = false
-        controller.hidesNavigationBarDuringPresentation = true
-        controller.searchBar.sizeToFit()
-        
-        return controller
-    }()
-    
-    @IBAction func searchButton(_ sender: UIBarButtonItem) {
-        present(searchController, animated: true, completion: nil)
-    }
-    
-    
 }
-
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

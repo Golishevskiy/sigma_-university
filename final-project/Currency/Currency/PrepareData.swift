@@ -155,12 +155,12 @@ class PrepareData {
                         webSite: bankServer.website,
                         internetBanking: localBank.internetBanking,
                         updateTime: rate.updateTime,
-                        prices: [Prices(currency: "USD", purchase: rate.usd.buy, sale: rate.usd.sel),
-                                 Prices(currency: "EUR", purchase: rate.eur.buy, sale: rate.eur.sel),
-                                 Prices(currency: "RUR", purchase: rate.rur.buy, sale: rate.rur.sel),
-                                 Prices(currency: "GBN", purchase: rate.gbp.buy, sale: rate.gbp.sel),
-                                 Prices(currency: "CHF", purchase: rate.chf.buy, sale: rate.chf.sel),
-                                 Prices(currency: "PLN", purchase: rate.pln.buy, sale: rate.pln.sel)
+                        prices: [Prices(currency: "USD", buy: rate.usd.buy, sal: rate.usd.sel),
+                                 Prices(currency: "EUR", buy: rate.eur.buy, sal: rate.eur.sel),
+                                 Prices(currency: "RUR", buy: rate.rur.buy, sal: rate.rur.sel),
+                                 Prices(currency: "GBN", buy: rate.gbp.buy, sal: rate.gbp.sel),
+                                 Prices(currency: "CHF", buy: rate.chf.buy, sal: rate.chf.sel),
+                                 Prices(currency: "PLN", buy: rate.pln.buy, sal: rate.pln.sel)
                         ])
         return bank
         
@@ -179,12 +179,12 @@ class PrepareData {
                         webSite: exchanger.website,
                         internetBanking: "",
                         updateTime: rate.updateTime,
-                        prices: [Prices(currency: "USD", purchase: rate.usd.buy, sale: rate.usd.sel),
-                                 Prices(currency: "EUR", purchase: rate.eur.buy, sale: rate.eur.sel),
-                                 Prices(currency: "RUR", purchase: rate.rur.buy, sale: rate.rur.sel),
-                                 Prices(currency: "GBN", purchase: rate.gbp.buy, sale: rate.gbp.sel),
-                                 Prices(currency: "CHF", purchase: rate.chf.buy, sale: rate.chf.sel),
-                                 Prices(currency: "PLN", purchase: rate.pln.buy, sale: rate.pln.sel)])
+                        prices: [Prices(currency: "USD", buy: rate.usd.buy, sal: rate.usd.sel),
+                                 Prices(currency: "EUR", buy: rate.eur.buy, sal: rate.eur.sel),
+                                 Prices(currency: "RUR", buy: rate.rur.buy, sal: rate.rur.sel),
+                                 Prices(currency: "GBN", buy: rate.gbp.buy, sal: rate.gbp.sel),
+                                 Prices(currency: "CHF", buy: rate.chf.buy, sal: rate.chf.sel),
+                                 Prices(currency: "PLN", buy: rate.pln.buy, sal: rate.pln.sel)])
         return bank
         
     }
