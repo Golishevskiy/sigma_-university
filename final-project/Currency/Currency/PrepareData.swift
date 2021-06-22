@@ -10,9 +10,9 @@ import Foundation
 class PrepareData {
     
     static let shared = PrepareData()
-    var result: Bank?
+    private var result: Bank?
     
-    let dataBanks = ["PrivatBank": BankLocalData(city: "Київ",
+    private let dataBanks = ["PrivatBank": BankLocalData(city: "Київ",
                                                  street: "вул. Хрещатик, 22",
                                                  phone: "3700",
                                                  supportPhone: "0739000002",
@@ -140,6 +140,50 @@ class PrepareData {
                                                internetBanking: "Privat24")
     ]
     
+    
+    func prepare(dbBanks: [DbBank]) -> [Bank] {
+        var result = [Bank]()
+        for bank in dbBanks {
+            result.append(fromDbBankToBank(dbBank: bank))
+        }
+        return result
+    }
+    
+    
+    private func fromDbBankToBank(dbBank: DbBank) -> Bank {
+        let bank = Bank(name: dbBank.name,
+                        city: dbBank.city,
+                        street: dbBank.street,
+                        phone: dbBank.phone,
+                        supportPhone: dbBank.supportPhone,
+                        worldSupportPhone: dbBank.worldSupportPhone,
+                        mail: dbBank.mail,
+                        imageUrl: dbBank.imageUrl,
+                        webSite: dbBank.webSite,
+                        internetBanking: dbBank.internetBanking,
+                        updateTime: Int(dbBank.updateTime),
+                        prices: setPrices(dbBank.prices))
+        return bank
+    }
+    
+    private func setPrices(_ prices: [DbPrice]) -> [Prices] {
+        var result = [Prices]()
+        for price in prices {
+            result.append(Prices(currency: price.currency,
+                                 buy: price.buy,
+                                 sel: price.sel))
+        }
+        return result
+    }
+    
+    func prepare(exchangers: [Exchanger]) -> [Bank] {
+        var result = [Bank]()
+        for bank in exchangers {
+            result.append(prepare(bankServer: bank))
+        }
+        return result
+    }
+    
     func prepare(bankServer: Exchanger) -> Bank {
         
         let rate = bankServer.rates
@@ -155,12 +199,12 @@ class PrepareData {
                         webSite: bankServer.website,
                         internetBanking: localBank.internetBanking,
                         updateTime: rate.updateTime,
-                        prices: [Prices(currency: "USD", buy: rate.usd.buy, sal: rate.usd.sel),
-                                 Prices(currency: "EUR", buy: rate.eur.buy, sal: rate.eur.sel),
-                                 Prices(currency: "RUR", buy: rate.rur.buy, sal: rate.rur.sel),
-                                 Prices(currency: "GBN", buy: rate.gbp.buy, sal: rate.gbp.sel),
-                                 Prices(currency: "CHF", buy: rate.chf.buy, sal: rate.chf.sel),
-                                 Prices(currency: "PLN", buy: rate.pln.buy, sal: rate.pln.sel)
+                        prices: [Prices(currency: "USD", buy: rate.usd.buy, sel: rate.usd.sel),
+                                 Prices(currency: "EUR", buy: rate.eur.buy, sel: rate.eur.sel),
+                                 Prices(currency: "RUR", buy: rate.rur.buy, sel: rate.rur.sel),
+                                 Prices(currency: "GBN", buy: rate.gbp.buy, sel: rate.gbp.sel),
+                                 Prices(currency: "CHF", buy: rate.chf.buy, sel: rate.chf.sel),
+                                 Prices(currency: "PLN", buy: rate.pln.buy, sel: rate.pln.sel)
                         ])
         return bank
         
@@ -179,12 +223,12 @@ class PrepareData {
                         webSite: exchanger.website,
                         internetBanking: "",
                         updateTime: rate.updateTime,
-                        prices: [Prices(currency: "USD", buy: rate.usd.buy, sal: rate.usd.sel),
-                                 Prices(currency: "EUR", buy: rate.eur.buy, sal: rate.eur.sel),
-                                 Prices(currency: "RUR", buy: rate.rur.buy, sal: rate.rur.sel),
-                                 Prices(currency: "GBN", buy: rate.gbp.buy, sal: rate.gbp.sel),
-                                 Prices(currency: "CHF", buy: rate.chf.buy, sal: rate.chf.sel),
-                                 Prices(currency: "PLN", buy: rate.pln.buy, sal: rate.pln.sel)])
+                        prices: [Prices(currency: "USD", buy: rate.usd.buy, sel: rate.usd.sel),
+                                 Prices(currency: "EUR", buy: rate.eur.buy, sel: rate.eur.sel),
+                                 Prices(currency: "RUR", buy: rate.rur.buy, sel: rate.rur.sel),
+                                 Prices(currency: "GBN", buy: rate.gbp.buy, sel: rate.gbp.sel),
+                                 Prices(currency: "CHF", buy: rate.chf.buy, sel: rate.chf.sel),
+                                 Prices(currency: "PLN", buy: rate.pln.buy, sel: rate.pln.sel)])
         return bank
         
     }

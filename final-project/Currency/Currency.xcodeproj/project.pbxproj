@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB15B8D726826B2A00495BDB /* DbBank+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB15B8D326826B2A00495BDB /* DbBank+CoreDataClass.swift */; };
+		AB15B8D826826B2A00495BDB /* DbBank+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB15B8D426826B2A00495BDB /* DbBank+CoreDataProperties.swift */; };
+		AB15B8D926826B2A00495BDB /* DbPrice+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB15B8D526826B2A00495BDB /* DbPrice+CoreDataClass.swift */; };
+		AB15B8DA26826B2A00495BDB /* DbPrice+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB15B8D626826B2A00495BDB /* DbPrice+CoreDataProperties.swift */; };
+		AB15B8DF26827F8E00495BDB /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB15B8DE26827F8E00495BDB /* Reachability.swift */; };
 		AB479965267DDDC200725AA5 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB479964267DDDC100725AA5 /* MenuButton.swift */; };
 		AB479970267DF1B900725AA5 /* UIButton+ImageTintColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB47996F267DF1B900725AA5 /* UIButton+ImageTintColor.swift */; };
 		AB479978267DF25A00725AA5 /* UIColor+hexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB479977267DF25A00725AA5 /* UIColor+hexString.swift */; };
@@ -30,8 +35,6 @@
 		AB9AF87A267B3D6A00E03558 /* BankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9AF878267B3D6A00E03558 /* BankCell.swift */; };
 		AB9AF87B267B3D6A00E03558 /* BankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB9AF879267B3D6A00E03558 /* BankCell.xib */; };
 		AB9F149E26823E1000DE9614 /* DbBank.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB9F149C26823E1000DE9614 /* DbBank.xcdatamodeld */; };
-		AB9F14B126824A6F00DE9614 /* DbBank+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9F14AF26824A6F00DE9614 /* DbBank+CoreDataClass.swift */; };
-		AB9F14B226824A6F00DE9614 /* DbBank+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9F14B026824A6F00DE9614 /* DbBank+CoreDataProperties.swift */; };
 		ABA79D7C2680862100147F47 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA79D7B2680862100147F47 /* Router.swift */; };
 		ABA79D842680DAD600147F47 /* MapLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA79D832680DAD600147F47 /* MapLayer.swift */; };
 		ABA79D9B26811B4D00147F47 /* DBLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA79D9A26811B4D00147F47 /* DBLayer.swift */; };
@@ -61,6 +64,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB15B8D326826B2A00495BDB /* DbBank+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DbBank+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AB15B8D426826B2A00495BDB /* DbBank+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DbBank+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AB15B8D526826B2A00495BDB /* DbPrice+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DbPrice+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AB15B8D626826B2A00495BDB /* DbPrice+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DbPrice+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AB15B8DE26827F8E00495BDB /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		AB479964267DDDC100725AA5 /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		AB47996F267DF1B900725AA5 /* UIButton+ImageTintColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+ImageTintColor.swift"; sourceTree = "<group>"; };
 		AB479977267DF25A00725AA5 /* UIColor+hexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hexString.swift"; sourceTree = "<group>"; };
@@ -90,8 +98,6 @@
 		AB9AF878267B3D6A00E03558 /* BankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankCell.swift; sourceTree = "<group>"; };
 		AB9AF879267B3D6A00E03558 /* BankCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BankCell.xib; sourceTree = "<group>"; };
 		AB9F149D26823E1000DE9614 /* DbBank.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DbBank.xcdatamodel; sourceTree = "<group>"; };
-		AB9F14AF26824A6F00DE9614 /* DbBank+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DbBank+CoreDataClass.swift"; sourceTree = "<group>"; };
-		AB9F14B026824A6F00DE9614 /* DbBank+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DbBank+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		ABA79D7B2680862100147F47 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		ABA79D832680DAD600147F47 /* MapLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLayer.swift; sourceTree = "<group>"; };
 		ABA79D9A26811B4D00147F47 /* DBLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBLayer.swift; sourceTree = "<group>"; };
@@ -132,8 +138,10 @@
 		AB73788C264D687300FBB92F = {
 			isa = PBXGroup;
 			children = (
-				AB9F14AF26824A6F00DE9614 /* DbBank+CoreDataClass.swift */,
-				AB9F14B026824A6F00DE9614 /* DbBank+CoreDataProperties.swift */,
+				AB15B8D326826B2A00495BDB /* DbBank+CoreDataClass.swift */,
+				AB15B8D426826B2A00495BDB /* DbBank+CoreDataProperties.swift */,
+				AB15B8D526826B2A00495BDB /* DbPrice+CoreDataClass.swift */,
+				AB15B8D626826B2A00495BDB /* DbPrice+CoreDataProperties.swift */,
 				AB737897264D687300FBB92F /* Currency */,
 				AB7378AE264D687500FBB92F /* CurrencyTests */,
 				AB7378B9264D687500FBB92F /* CurrencyUITests */,
@@ -223,6 +231,7 @@
 			children = (
 				ABA79D7B2680862100147F47 /* Router.swift */,
 				AB76B3CA267F49420023909C /* PrepareData.swift */,
+				AB15B8DE26827F8E00495BDB /* Reachability.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -424,18 +433,21 @@
 				AB479965267DDDC200725AA5 /* MenuButton.swift in Sources */,
 				AB76B3CB267F49420023909C /* PrepareData.swift in Sources */,
 				ABF02E7A26806C5400054974 /* AlertView.swift in Sources */,
-				AB9F14B226824A6F00DE9614 /* DbBank+CoreDataProperties.swift in Sources */,
+				AB15B8D826826B2A00495BDB /* DbBank+CoreDataProperties.swift in Sources */,
 				AB9F149E26823E1000DE9614 /* DbBank.xcdatamodeld in Sources */,
+				AB15B8DF26827F8E00495BDB /* Reachability.swift in Sources */,
 				AB754C7E267BF10F0003F3E8 /* DetailViewController.swift in Sources */,
 				ABF02E37267FA78200054974 /* Date+ConvertFromUnix.swift in Sources */,
 				ABC87AEB265FBF81003F9535 /* StartButton.swift in Sources */,
 				AB754C76267BEE260003F3E8 /* CustomImageView.swift in Sources */,
 				AB754C6D267BE7C60003F3E8 /* StatusView.swift in Sources */,
 				AB9AF869267A78B700E03558 /* Network.swift in Sources */,
-				AB9F14B126824A6F00DE9614 /* DbBank+CoreDataClass.swift in Sources */,
+				AB15B8D726826B2A00495BDB /* DbBank+CoreDataClass.swift in Sources */,
 				ABF02E31267FA15C00054974 /* PriceCurrencyCell.swift in Sources */,
 				AB754C61267BAE6E0003F3E8 /* MapViewController.swift in Sources */,
 				ABA79D842680DAD600147F47 /* MapLayer.swift in Sources */,
+				AB15B8D926826B2A00495BDB /* DbPrice+CoreDataClass.swift in Sources */,
+				AB15B8DA26826B2A00495BDB /* DbPrice+CoreDataProperties.swift in Sources */,
 				AB9AF860267A77FE00E03558 /* BankModel.swift in Sources */,
 				AB9AF87A267B3D6A00E03558 /* BankCell.swift in Sources */,
 				AB73789D264D687300FBB92F /* ViewController.swift in Sources */,

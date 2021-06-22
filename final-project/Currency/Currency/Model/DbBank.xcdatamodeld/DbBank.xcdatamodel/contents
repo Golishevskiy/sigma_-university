@@ -13,9 +13,9 @@
         <attribute name="updateTime" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="webSite" optional="YES" attributeType="String"/>
         <attribute name="worldSupportPhone" optional="YES" attributeType="String"/>
-        <relationship name="prices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DbPrice"/>
+        <relationship name="prices" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DbPrice"/>
     </entity>
-    <entity name="DbPrice" representedClassName="DbPrice" syncable="YES" codeGenerationType="class">
+    <entity name="DbPrice" representedClassName="DbPrice" syncable="YES">
         <attribute name="buy" optional="YES" attributeType="String"/>
         <attribute name="currency" optional="YES" attributeType="String"/>
         <attribute name="sel" optional="YES" attributeType="String"/>

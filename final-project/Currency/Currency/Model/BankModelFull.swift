@@ -25,10 +25,6 @@ struct Bank {
 struct Prices {
     var currency: String
     var buy: String
-    var sal: String
+    var sel: String
 }
-//
-//struct ExchangeRate {
-//    var purchase: String
-//    var sale: String
-//}
+

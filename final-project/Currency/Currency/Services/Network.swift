@@ -10,8 +10,9 @@ import Foundation
 class Network {
     
     static let shared = Network()
+    let prepare = PrepareData.shared
     
-    func getData(completion: @escaping ([Exchanger]) -> Void) {
+    func getData(completion: @escaping ([Bank]) -> Void) {
         let session = URLSession(configuration: .default)
         guard let url = URL(string: "https://kurstoday.com.ua/api/service/banks-of-ukraine") else { return }
         
@@ -25,8 +26,9 @@ class Network {
                 response.statusCode == 200 {
                 let response = try? JSONDecoder().decode(BankModel.self, from: data)
                 guard let exchangers = response?.exchangers else { return }
+                let banks = self.prepare.prepare(exchangers: exchangers)
                 DispatchQueue.main.async {
-                    completion(exchangers)
+                    completion(banks)
                 }
             }
         }.resume()

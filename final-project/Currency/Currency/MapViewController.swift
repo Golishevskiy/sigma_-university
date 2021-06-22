@@ -62,7 +62,7 @@ class MapViewController: UIViewController {
     private func searchStreetFromName(name: String) {
         geocoder.geocodeAddressString(name) { (response, error) in
             if error != nil {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription ?? "error searchStreetFromName MapViewController")
             }
             
             if response != nil {

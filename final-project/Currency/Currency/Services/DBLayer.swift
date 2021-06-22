@@ -48,6 +48,7 @@ class DBLayer {
     func fetchRepos() -> [DbBank] {
         do {
             return try context.fetch(DbBank.fetchRequest())
+            
         } catch {
             print(error.localizedDescription)
         }
@@ -55,20 +56,32 @@ class DBLayer {
     }
     
     
-    func save(bank: Bank) {
+    func save(banks: [Bank]) {
         //        let array = prepareData(searchText: requestText, items: items)
-        let newBank = DbBank(context: context)
-        newBank.name = bank.name
-        newBank.city = bank.city
-        newBank.street = bank.street
-        newBank.phone = bank.phone
-        newBank.supportPhone = bank.supportPhone
-        newBank.worldSupportPhone = bank.worldSupportPhone
-        newBank.mail = bank.mail
-        newBank.imageUrl = bank.imageUrl
-        newBank.webSite = bank.webSite
-        newBank.internetBanking = bank.internetBanking
-        newBank.updateTime = Int64(bank.updateTime)
+        
+        for bank in banks {
+            let newBank = DbBank(context: context)
+            newBank.name = bank.name
+            newBank.city = bank.city
+            newBank.street = bank.street
+            newBank.phone = bank.phone
+            newBank.supportPhone = bank.supportPhone
+            newBank.worldSupportPhone = bank.worldSupportPhone
+            newBank.mail = bank.mail
+            newBank.imageUrl = bank.imageUrl
+            newBank.webSite = bank.webSite
+            newBank.internetBanking = bank.internetBanking
+            newBank.updateTime = Int64(bank.updateTime)
+            
+            for price in bank.prices {
+                let newPrice = DbPrice(context: context)
+                newPrice.currency = price.currency
+                newPrice.buy = price.buy
+                newPrice.sel = price.sel
+                newBank.addToPrices(newPrice)
+            }
+        }
+        
         
         do {
             try self.context.save()
