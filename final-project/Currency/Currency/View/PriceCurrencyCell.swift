@@ -31,5 +31,4 @@ class PriceCurrencyCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
-    
 }

@@ -22,13 +22,11 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var alert: AlertView!
-    
-    
-    var alertIsHidden = true {
-        didSet {
-            
-        }
-    }
+//    var alertIsHidden = true {
+//        didSet {
+//
+//        }
+//    }
     private let router = Router.shared
     var bank: Bank?
     let phoneButton = MenuButton(diameter: 60,
@@ -58,8 +56,6 @@ class DetailViewController: UIViewController {
         alert.isHidden = true
         alert.translatesAutoresizingMaskIntoConstraints = false
         setupAlertConstraint()
-    
-        //        tableView.register(UINib(nibName: "PriceCurrencyCell", bundle: nil), forCellReuseIdentifier: "cell")
         setupButtons()
         fillInHeader()
     }
@@ -91,6 +87,7 @@ class DetailViewController: UIViewController {
     private func fillInHeader() {
         guard let bank = bank else { return }
         nameLabel.text = bank.name
+        internetBankingLabel.text = "App"
         logoImageView.loadImageUsingUrlString(urlString: bank.imageUrl)
         webSiteLabel.text = bank.webSite
         addressLabel.text = "\(bank.city), \(bank.street)"

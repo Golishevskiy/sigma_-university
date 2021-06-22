@@ -45,6 +45,24 @@ class ViewController: UIViewController {
             banks.append(transform.prepare(bankServer: bank))
         }
     }
+    
+    var searchController: UISearchController = {
+        let controller = UISearchController(searchResultsController: nil)
+//        controller.delegate = self
+//        controller.searchBar.delegate = self
+//        controller.searchResultsUpdater = self
+        controller.dimsBackgroundDuringPresentation = false
+        controller.hidesNavigationBarDuringPresentation = true
+        controller.searchBar.sizeToFit()
+        
+        return controller
+    }()
+    
+    @IBAction func searchButton(_ sender: UIBarButtonItem) {
+        present(searchController, animated: true, completion: nil)
+    }
+    
+    
 }
 
 

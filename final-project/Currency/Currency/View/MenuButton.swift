@@ -40,10 +40,10 @@ class MenuButton: UIButton {
     }
     
     private func setupButton(diameter: CGFloat,
-                     image: String,
-                     tintColorImage: TintColor.RawValue,
-                     bgColor: BgColor.RawValue,
-                     shadow: Bool) {
+                             image: String,
+                             tintColorImage: TintColor.RawValue,
+                             bgColor: BgColor.RawValue,
+                             shadow: Bool) {
         self.translatesAutoresizingMaskIntoConstraints = false
         
         // set image
@@ -61,15 +61,7 @@ class MenuButton: UIButton {
         self.widthAnchor.constraint(equalToConstant: diameter).isActive = true
         self.heightAnchor.constraint(equalToConstant: diameter).isActive = true
         shadow ? setShadow() : nil
-        
-//        setupConstraint()
-        
     }
-    
-//    private func setupConstraint() {
-//        self.rightAnchor.constraint(equalTo: superview!.rightAnchor, constant: -19).isActive = true
-//        self.bottomAnchor.constraint(equalTo: superview!.bottomAnchor, constant: -19).isActive = true
-//    }
     
     private func setShadow() {
         self.layer.shadowOffset = CGSize(width: 0, height: 16)

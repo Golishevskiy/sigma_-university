@@ -28,16 +28,6 @@ struct Prices {
     var sale: String
 }
 
-
-//struct Prices {
-//    var USD: ExchangeRate
-//    var PLN: ExchangeRate
-//    var EUR: ExchangeRate
-//    var GBF: ExchangeRate
-//    var RUR: ExchangeRate
-//    var CHF: ExchangeRate
-//}
-
 struct ExchangeRate {
     var purchase: String
     var sale: String

@@ -15,7 +15,7 @@ class testVCViewController: UIViewController {
 
     }
     
-    @IBAction func doneButton(_ sender: DoneButton) {
+    @IBAction func doneButton(_ sender: StartButton) {
 //        let startViewController = storyboard?.instantiateViewController(withIdentifier: "viewController") as! ViewController
         
 //        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

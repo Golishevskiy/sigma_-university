@@ -23,32 +23,28 @@ class BankCell: UITableViewCell {
     var actionClosure: ((_ buttonTag: Int) -> Void)?
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        
 
-
-        let mask = rootView.layer.mask
-        bottomView.layer.mask = mask
+//        let mask = rootView.layer.mask
+//        bottomView.layer.mask = mask
         rootView.layer.cornerRadius = 10
         rootView.clipsToBounds = true
-        rootView.layer.masksToBounds = false
-        rootView.layer.shadowRadius = 5
-//        rootView.layer.shadowOffset
-        rootView.layer.shadowOpacity = 0.3
-        rootView.layer.shadowColor = UIColor.darkGray.cgColor
+//        rootView.layer.masksToBounds = false
+//        rootView.layer.shadowRadius = 5
+////        rootView.layer.shadowOffset
+//        rootView.layer.shadowOpacity = 0.3
+//        rootView.layer.shadowColor = UIColor.darkGray.cgColor
+//
+//        rootView.layer.shouldRasterize = true
 
-        rootView.layer.shouldRasterize = true
-
-        
-            
-//        rootView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         setupImage()
     }
     
     func fillIn(bank: Bank) {
         logoImageView.loadImageUsingUrlString(urlString: bank.imageUrl)
         bankNameLabel.text = bank.name
-//        phoneLabel.text = "0443292837"
+        phoneLabel.text = bank.phone
+        cityLabel.text = bank.city
+        streetLabel.text = bank.street
     }
     
     func setupImage() {

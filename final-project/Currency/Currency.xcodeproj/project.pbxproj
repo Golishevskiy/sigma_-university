@@ -31,8 +31,9 @@
 		AB9AF87B267B3D6A00E03558 /* BankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB9AF879267B3D6A00E03558 /* BankCell.xib */; };
 		ABA79D7C2680862100147F47 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA79D7B2680862100147F47 /* Router.swift */; };
 		ABA79D842680DAD600147F47 /* MapLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA79D832680DAD600147F47 /* MapLayer.swift */; };
+		ABA79D9B26811B4D00147F47 /* DBLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA79D9A26811B4D00147F47 /* DBLayer.swift */; };
 		ABC87AE6265EF36F003F9535 /* PageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC87AE5265EF36F003F9535 /* PageVC.swift */; };
-		ABC87AEB265FBF81003F9535 /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC87AEA265FBF80003F9535 /* DoneButton.swift */; };
+		ABC87AEB265FBF81003F9535 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC87AEA265FBF80003F9535 /* StartButton.swift */; };
 		ABC87AF0265FC01A003F9535 /* testVCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC87AEF265FC01A003F9535 /* testVCViewController.swift */; };
 		ABF02E31267FA15C00054974 /* PriceCurrencyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF02E2F267FA15C00054974 /* PriceCurrencyCell.swift */; };
 		ABF02E32267FA15C00054974 /* PriceCurrencyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABF02E30267FA15C00054974 /* PriceCurrencyCell.xib */; };
@@ -89,8 +90,9 @@
 		AB9AF879267B3D6A00E03558 /* BankCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BankCell.xib; sourceTree = "<group>"; };
 		ABA79D7B2680862100147F47 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		ABA79D832680DAD600147F47 /* MapLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLayer.swift; sourceTree = "<group>"; };
+		ABA79D9A26811B4D00147F47 /* DBLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBLayer.swift; sourceTree = "<group>"; };
 		ABC87AE5265EF36F003F9535 /* PageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageVC.swift; sourceTree = "<group>"; };
-		ABC87AEA265FBF80003F9535 /* DoneButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
+		ABC87AEA265FBF80003F9535 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
 		ABC87AEF265FC01A003F9535 /* testVCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVCViewController.swift; sourceTree = "<group>"; };
 		ABF02E2F267FA15C00054974 /* PriceCurrencyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCurrencyCell.swift; sourceTree = "<group>"; };
 		ABF02E30267FA15C00054974 /* PriceCurrencyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PriceCurrencyCell.xib; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 		AB76B3C9267F49160023909C /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				ABA79D7B2680862100147F47 /* Router.swift */,
 				AB76B3CA267F49420023909C /* PrepareData.swift */,
 			);
 			name = Support;
@@ -226,7 +229,6 @@
 			children = (
 				AB9AF85F267A77FE00E03558 /* BankModel.swift */,
 				AB76B3C4267F448D0023909C /* BankModelFull.swift */,
-				ABA79D7B2680862100147F47 /* Router.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -236,6 +238,7 @@
 			children = (
 				AB9AF868267A78B700E03558 /* Network.swift */,
 				ABA79D832680DAD600147F47 /* MapLayer.swift */,
+				ABA79D9A26811B4D00147F47 /* DBLayer.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -245,16 +248,32 @@
 			children = (
 				AB754C6C267BE7C60003F3E8 /* StatusView.swift */,
 				AB479964267DDDC100725AA5 /* MenuButton.swift */,
-				ABC87AEA265FBF80003F9535 /* DoneButton.swift */,
-				ABF02E7926806C5400054974 /* AlertView.swift */,
-				ABF02E7E26806C6500054974 /* AlertView.xib */,
-				AB9AF878267B3D6A00E03558 /* BankCell.swift */,
-				AB9AF879267B3D6A00E03558 /* BankCell.xib */,
+				ABC87AEA265FBF80003F9535 /* StartButton.swift */,
+				AB9F14222681EE6300DE9614 /* Alert */,
+				AB9F141E2681EE5000DE9614 /* Bank */,
 				ABF02E2F267FA15C00054974 /* PriceCurrencyCell.swift */,
 				ABF02E30267FA15C00054974 /* PriceCurrencyCell.xib */,
 				AB73789E264D687300FBB92F /* Main.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		AB9F141E2681EE5000DE9614 /* Bank */ = {
+			isa = PBXGroup;
+			children = (
+				AB9AF878267B3D6A00E03558 /* BankCell.swift */,
+				AB9AF879267B3D6A00E03558 /* BankCell.xib */,
+			);
+			path = Bank;
+			sourceTree = "<group>";
+		};
+		AB9F14222681EE6300DE9614 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				ABF02E7926806C5400054974 /* AlertView.swift */,
+				ABF02E7E26806C6500054974 /* AlertView.xib */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -391,12 +410,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABA79D7C2680862100147F47 /* Router.swift in Sources */,
+				ABA79D9B26811B4D00147F47 /* DBLayer.swift in Sources */,
 				AB479965267DDDC200725AA5 /* MenuButton.swift in Sources */,
 				AB76B3CB267F49420023909C /* PrepareData.swift in Sources */,
 				ABF02E7A26806C5400054974 /* AlertView.swift in Sources */,
 				AB754C7E267BF10F0003F3E8 /* DetailViewController.swift in Sources */,
 				ABF02E37267FA78200054974 /* Date+ConvertFromUnix.swift in Sources */,
-				ABC87AEB265FBF81003F9535 /* DoneButton.swift in Sources */,
+				ABC87AEB265FBF81003F9535 /* StartButton.swift in Sources */,
 				AB754C76267BEE260003F3E8 /* CustomImageView.swift in Sources */,
 				ABC87AF0265FC01A003F9535 /* testVCViewController.swift in Sources */,
 				AB754C6D267BE7C60003F3E8 /* StatusView.swift in Sources */,

@@ -11,19 +11,17 @@ import MapKit
 class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
-    var geocoder = CLGeocoder()
-    var searchName: String?
-    var startPoint = CLLocationCoordinate2D()
+    private var geocoder = CLGeocoder()
+    private var startPoint = CLLocationCoordinate2D()
     private let locationManager: CLLocationManager = CLLocationManager()
+    var searchName: String?
     
-//    let mapLayer = MapLayer.shared
+    //    let mapLayer = MapLayer.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUserLocation()
-//        let endPoint = mapLayer.searchStreetFromName(name: searchName!, map: mapView)
         searchStreetFromName(name: searchName!)
-//        mapLayer.drawLine(startP: startPoint, endP: endPoint, map: mapView)
     }
     
     private func setUserLocation() {
@@ -32,17 +30,17 @@ class MapViewController: UIViewController {
         startPoint = locationManager.location!.coordinate
         mapView.showsUserLocation = true
     }
-
+    
     private func drawLine(startP: CLLocationCoordinate2D, endP: CLLocationCoordinate2D) {
         // request route
         let start = MKPlacemark(coordinate: startP)
         let end = MKPlacemark(coordinate: endP)
-
+        
         let request = MKDirections.Request()
         request.source = MKMapItem(placemark: start)
         request.destination = MKMapItem(placemark: end)
         request.transportType = .automobile
-
+        
         let direction = MKDirections(request: request)
         direction.calculate { (response , error) in
             guard let response = response else { return }
@@ -59,14 +57,14 @@ class MapViewController: UIViewController {
         let region = MKCoordinateRegion(center: location, latitudinalMeters: zoom, longitudinalMeters: zoom + zoom*0.2)
         mapView.setRegion(region, animated: true)
     }
-
+    
     // search location from street name
     private func searchStreetFromName(name: String) {
         geocoder.geocodeAddressString(name) { (response, error) in
             if error != nil {
                 print(error?.localizedDescription)
             }
-
+            
             if response != nil {
                 if let response = response?.first {
                     let annotation = MKPointAnnotation()
@@ -81,8 +79,6 @@ class MapViewController: UIViewController {
             }
         }
     }
-    
-
 }
 
 extension MapViewController: MKMapViewDelegate {

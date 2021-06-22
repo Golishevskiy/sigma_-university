@@ -38,7 +38,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Khg-gQ-lnb">
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Khg-gQ-lnb">
                                 <rect key="frame" x="413.5" y="12" width="69.5" height="20"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TeE-b3-eQJ">
@@ -56,7 +56,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oF6-h1-mGi">
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oF6-h1-mGi">
                                 <rect key="frame" x="413.5" y="38" width="69.5" height="20"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YRx-lY-yAI">
@@ -78,12 +78,7 @@
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
                             <constraint firstItem="qgA-X2-BMS" firstAttribute="centerY" secondItem="AHc-72-tlA" secondAttribute="centerY" id="18Z-vc-VBf"/>
-                            <constraint firstAttribute="bottom" secondItem="oF6-h1-mGi" secondAttribute="bottom" constant="51" id="L9O-k0-7Mt"/>
-                            <constraint firstAttribute="trailing" secondItem="Khg-gQ-lnb" secondAttribute="trailing" constant="24" id="Nrh-8x-JPw"/>
-                            <constraint firstItem="Khg-gQ-lnb" firstAttribute="top" secondItem="AHc-72-tlA" secondAttribute="top" constant="12" id="VL0-p9-I0I"/>
                             <constraint firstItem="qgA-X2-BMS" firstAttribute="leading" secondItem="AHc-72-tlA" secondAttribute="leading" constant="24" id="fNf-Jj-JSW"/>
-                            <constraint firstAttribute="trailing" secondItem="oF6-h1-mGi" secondAttribute="trailing" constant="24" id="qcj-ne-9YI"/>
-                            <constraint firstItem="oF6-h1-mGi" firstAttribute="top" secondItem="Khg-gQ-lnb" secondAttribute="bottom" constant="6" id="stc-r6-VCC"/>
                         </constraints>
                     </view>
                 </subviews>

@@ -7,9 +7,18 @@
 
 import UIKit
 
-class DoneButton: UIButton {
+class StartButton: UIButton {
     
-    override func awakeFromNib() {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    func setup() {
         backgroundColor = UIColor(named: "currencyBlue")
         setTitle("РОЗПОЧАТИ", for: .normal)
         titleLabel?.font = UIFont(name: "HelveticaNeue-Bold", size: 14)
@@ -18,6 +27,7 @@ class DoneButton: UIButton {
         layer.shadowOffset = CGSize(width: 0, height: 5)
         layer.shadowOpacity = 4.0
         layer.shadowRadius = 6
-        layer.masksToBounds = false
+        self.translatesAutoresizingMaskIntoConstraints = false
+//        layer.masksToBounds = false
     }
 }

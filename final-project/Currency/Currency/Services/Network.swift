@@ -8,6 +8,7 @@
 import Foundation
 
 class Network {
+    
     static let shared = Network()
     
     func getData(completion: @escaping ([Exchanger]) -> Void) {
