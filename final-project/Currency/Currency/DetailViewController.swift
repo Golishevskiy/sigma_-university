@@ -22,42 +22,29 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var alert: AlertView!
-//    var alertIsHidden = true {
-//        didSet {
-//
-//        }
-//    }
+    
     private let router = Router.shared
     var bank: Bank?
-    let phoneButton = MenuButton(diameter: 60,
-                                 imageName: "phone",
-                                 tintColor: .grey,
-                                 bgColor: .white)
-    let locationButton = MenuButton(diameter: 60,
-                                    imageName: "location",
-                                    tintColor: .grey,
-                                    bgColor: .white)
-    let linkButton = MenuButton(diameter: 60,
-                                imageName: "link",
-                                tintColor: .grey,
-                                bgColor: .white)
-    let button = MenuButton(diameter: 60,
-                            imageName: "menu2",
-                            tintColor: .white,
-                            bgColor: .green,
-                            shadow: true)
-    
+    var localBank: Bank?
+    var hamburgerMenu = HamburgerMenu()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = bank?.name
-        alert = UINib(nibName: "AlertView", bundle: .main).instantiate(withOwner: nil, options: nil).first as? AlertView
+        setupAlert()
+        fillInHeader()
+        hamburgerMenu.addHamburgerMenu(bank: bank,
+                                       view: self.view,
+                                       navigationController: navigationController!)
+    }
+    
+    private func setupAlert() {
+        alert = UINib(nibName: "AlertView", bundle: .main).instantiate(withOwner: nil,
+                                                                       options: nil).first as? AlertView
         view.addSubview(alert)
         alert.isHidden = true
         alert.translatesAutoresizingMaskIntoConstraints = false
         setupAlertConstraint()
-        setupButtons()
-        fillInHeader()
     }
     
     private func setupAlertConstraint() {
@@ -67,104 +54,26 @@ class DetailViewController: UIViewController {
         alert.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
-    @objc func menuClicked(sender: UIButton) {
-        guard let bank = bank else { return }
-        switch sender.tag {
-        case 0:
-            router.toSafary(link: bank.webSite)
-        case 1:
-            router.toMap(address: bank.city + " " + bank.street,
-                         navigation: navigationController)
-        case 2:
-            router.toCall(number: bank.phone)
-        case 3:
-            showMenu()
-        default:
-            print("default")
-        }
-    }
-    
     private func fillInHeader() {
-        guard let bank = bank else { return }
-        nameLabel.text = bank.name
-        internetBankingLabel.text = "App"
-        logoImageView.loadImageUsingUrlString(urlString: bank.imageUrl)
-        webSiteLabel.text = bank.webSite
-        addressLabel.text = "\(bank.city), \(bank.street)"
-        phoneLabel.text = bank.supportPhone
-        supportPhoneLabel.text = bank.phone
-        worldSupportPhonelabel.text = bank.worldSupportPhone
-        emailLabel.text = bank.mail
-        updateTime.text = Date(timeIntervalSince1970: Double(bank.updateTime)).getFormattedDate(format: "HH:mm dd-MM-yyyy")
-    }
-    
-    private func setupButtons() {
-        phoneButton.tag = 2
-        locationButton.tag = 1
-        linkButton.tag = 0
-        button.tag = 3
-        
-        view.addSubview(phoneButton)
-        view.addSubview(locationButton)
-        view.addSubview(linkButton)
-        view.addSubview(button)
-        
-        button.addTarget(self, action: #selector(menuClicked), for: .touchUpInside)
-        phoneButton.addTarget(self, action: #selector(menuClicked), for: .touchUpInside)
-        linkButton.addTarget(self, action: #selector(menuClicked), for: .touchUpInside)
-        locationButton.addTarget(self, action: #selector(menuClicked), for: .touchUpInside)
-        
-        phoneButton.isHidden = true
-        locationButton.isHidden = true
-        linkButton.isHidden = true
-        
-        button.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -19).isActive = true
-        button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -19).isActive = true
-        
-        phoneButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19).isActive = true
-        phoneButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -19).isActive = true
-        
-        locationButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19).isActive = true
-        locationButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -19).isActive = true
-        
-        linkButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -19).isActive = true
-        linkButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -19).isActive = true
-    }
-    
-    private func showMenu() {
-        if phoneButton.isHidden == true {
-            UIView.animate(withDuration: 0.3) {
-                self.phoneButton.isHidden = false
-                self.locationButton.isHidden = false
-                self.linkButton.isHidden = false
-                
-                self.view.backgroundColor = .black
-                self.view.subviews[0].alpha = 0.6
-                
-                self.phoneButton.transform = CGAffineTransform(translationX: .zero, y: -(self.phoneButton.frame.width + 12))
-                self.locationButton.transform = CGAffineTransform(translationX: .zero, y: -((self.phoneButton.frame.width + 12) * 2))
-                self.linkButton.transform = CGAffineTransform(translationX: .zero, y: -((self.phoneButton.frame.width + 12) * 3))
-                
-                self.button.setImage(UIImage(named: "close"), for: .normal)
-                self.button.setImageTintColor(UIColor(hexFromString: "FFFFFF"))
-            }
+        if bank == nil {
+            setupHeader(bank: localBank)
         } else {
-            UIView.animate(withDuration: 0.3) {
-                
-                self.view.backgroundColor = .clear
-                self.view.subviews[0].alpha = 1
-                
-                self.phoneButton.transform = CGAffineTransform(translationX: .zero, y: (self.phoneButton.frame.width + 12))
-                self.locationButton.transform = CGAffineTransform(translationX: .zero, y: ((self.phoneButton.frame.width + 12) * 2))
-                self.linkButton.transform = CGAffineTransform(translationX: .zero, y: ((self.phoneButton.frame.width + 12) * 3))
-                self.button.setImage(UIImage(named: "menu2"), for: .normal)
-                self.button.setImageTintColor(UIColor(hexFromString: "FFFFFF"))
-            } completion: { _ in
-                self.phoneButton.isHidden = true
-                self.locationButton.isHidden = true
-                self.linkButton.isHidden = true
-            }
+            setupHeader(bank: bank)
         }
+    }
+    
+    private func setupHeader(bank: Bank?) {
+        guard let item = bank else { return }
+        nameLabel.text = item.name
+        internetBankingLabel.text = "App"
+        logoImageView.loadImageUsingUrlString(urlString: item.imageUrl)
+        webSiteLabel.text = item.webSite
+        addressLabel.text = "\(item.city), \(item.street)"
+        phoneLabel.text = item.supportPhone
+        supportPhoneLabel.text = item.phone
+        worldSupportPhonelabel.text = item.worldSupportPhone
+        emailLabel.text = item.mail
+        updateTime.text = Date(timeIntervalSince1970: Double(item.updateTime)).getFormattedDate(format: "HH:mm dd-MM-yyyy")
     }
     
     @IBAction func sharedButton(_ sender: UIBarButtonItem) {
@@ -172,19 +81,18 @@ class DetailViewController: UIViewController {
             alert.isHidden = false
             view.backgroundColor = .black
             view.subviews[0].alpha = 0.6
-            button.isHidden = true
+            hamburgerMenu.hidden(b: true)
         } else {
             alert.isHidden = true
             view.backgroundColor = .clear
             view.subviews[0].alpha = 1
-            button.isHidden = false
+            hamburgerMenu.hidden(b: false)
         }
-           
         guard let bank = bank else { return }
         alert.fillIn(bank: bank)
         alert.callBack = {
             let activityController = UIActivityViewController(activityItems: [self.bank],
-                                                          applicationActivities: nil)
+                                                              applicationActivities: nil)
             self.present(activityController, animated: true, completion: nil)
         }
     }
@@ -192,14 +100,26 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        if let bank = bank {
+            return bank.prices.count
+        } else if let localBank = localBank {
+            return localBank.prices.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let bank = bank else { return UITableViewCell() }
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PriceCurrencyCell
-        cell.fillIn(title: bank.prices[indexPath.row].currency, description: "Долар США", buyLabel: bank.prices[indexPath.row].buy, selLabel: bank.prices[indexPath.row].sel)
-        return cell
+        
+        if bank != nil && localBank != nil {
+            cell.fillIn(price: bank!.prices[indexPath.row], oldPrice: localBank!.prices[indexPath.row])
+            return cell
+        }
+        else if bank == nil && localBank != nil {
+            cell.fillIn(bank: localBank!.prices[indexPath.row])
+            return cell
+        }
+        return UITableViewCell()
     }
 }
 

@@ -7,23 +7,12 @@
 
 import UIKit
 
+@available(iOS 13.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let viewController = storyboard.instantiateViewController(withIdentifier: "navigationController")
-        self.window?.rootViewController? = viewController
-        
-                if !UserDefaults.standard.bool(forKey: "didSee") {
-                    UserDefaults.standard.set(true, forKey: "didSee")
-                    let viewController = storyboard.instantiateViewController(withIdentifier: "PageVC")
-                    self.window?.rootViewController?.present(viewController, animated: true, completion: nil)
-                } else {
-                    
-                    self.window?.makeKeyAndVisible()
-                }
         
         guard let _ = (scene as? UIWindowScene) else { return }
     }

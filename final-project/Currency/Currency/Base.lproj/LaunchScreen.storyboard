@@ -17,15 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coin" translatesAutoresizingMaskIntoConstraints="NO" id="iBD-av-uEu">
-                                <rect key="frame" x="8" y="119.5" width="398" height="657"/>
+                                <rect key="frame" x="40" y="119.5" width="334" height="657"/>
                                 <color key="tintColor" name="AccentColor"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" name="AccentColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="iBD-av-uEu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="Jdj-HP-P71"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iBD-av-uEu" secondAttribute="trailing" constant="8" id="a0m-SC-eDx"/>
+                            <constraint firstItem="iBD-av-uEu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Jdj-HP-P71"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iBD-av-uEu" secondAttribute="trailing" constant="40" id="a0m-SC-eDx"/>
                             <constraint firstItem="iBD-av-uEu" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ar9-hR-iA8"/>
                         </constraints>
                     </view>

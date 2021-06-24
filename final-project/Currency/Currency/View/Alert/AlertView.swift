@@ -28,7 +28,6 @@ class AlertView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        loadView()
     }
     
     required init?(coder: NSCoder) {
@@ -42,7 +41,6 @@ class AlertView: UIView {
     }
     
     func fillIn(bank: Bank) {
-         print(bank.name)
         nameLabel.text = bank.name
         addressLabel.text = bank.city
         
@@ -63,13 +61,4 @@ class AlertView: UIView {
     @IBAction func sharedButton(_ sender: UIButton) {
         callBack?()
     }
-    
-//    func loadView() {
-//        let view = UINib(nibName: "AlertView", bundle: .main).instantiate(withOwner: nil, options: nil).first as! AlertView
-//        view.frame = bounds
-//        view.layer.cornerRadius = 10
-//        view.layer.masksToBounds = true
-//        addSubview(view)
-//        self.subviews
-//    }
 }

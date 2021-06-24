@@ -12,7 +12,7 @@ class Router {
     
     static let shared = Router()
     
-    func toSafary(link: String) {
+    func toSafari(link: String) {
         if let url = URL(string: link) {
             UIApplication.shared.open(url)
         }

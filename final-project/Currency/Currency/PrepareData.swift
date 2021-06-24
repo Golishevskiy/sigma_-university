@@ -144,13 +144,13 @@ class PrepareData {
     func prepare(dbBanks: [DbBank]) -> [Bank] {
         var result = [Bank]()
         for bank in dbBanks {
-            result.append(fromDbBankToBank(dbBank: bank))
+            result.append(DbBankToBank(dbBank: bank))
         }
         return result
     }
     
     
-    private func fromDbBankToBank(dbBank: DbBank) -> Bank {
+    private func DbBankToBank(dbBank: DbBank) -> Bank {
         let bank = Bank(name: dbBank.name,
                         city: dbBank.city,
                         street: dbBank.street,
@@ -202,7 +202,7 @@ class PrepareData {
                         prices: [Prices(currency: "USD", buy: rate.usd.buy, sel: rate.usd.sel),
                                  Prices(currency: "EUR", buy: rate.eur.buy, sel: rate.eur.sel),
                                  Prices(currency: "RUR", buy: rate.rur.buy, sel: rate.rur.sel),
-                                 Prices(currency: "GBN", buy: rate.gbp.buy, sel: rate.gbp.sel),
+                                 Prices(currency: "GBP", buy: rate.gbp.buy, sel: rate.gbp.sel),
                                  Prices(currency: "CHF", buy: rate.chf.buy, sel: rate.chf.sel),
                                  Prices(currency: "PLN", buy: rate.pln.buy, sel: rate.pln.sel)
                         ])
@@ -226,7 +226,7 @@ class PrepareData {
                         prices: [Prices(currency: "USD", buy: rate.usd.buy, sel: rate.usd.sel),
                                  Prices(currency: "EUR", buy: rate.eur.buy, sel: rate.eur.sel),
                                  Prices(currency: "RUR", buy: rate.rur.buy, sel: rate.rur.sel),
-                                 Prices(currency: "GBN", buy: rate.gbp.buy, sel: rate.gbp.sel),
+                                 Prices(currency: "GBP", buy: rate.gbp.buy, sel: rate.gbp.sel),
                                  Prices(currency: "CHF", buy: rate.chf.buy, sel: rate.chf.sel),
                                  Prices(currency: "PLN", buy: rate.pln.buy, sel: rate.pln.sel)])
         return bank

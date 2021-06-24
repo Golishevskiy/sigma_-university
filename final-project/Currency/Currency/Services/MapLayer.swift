@@ -16,7 +16,7 @@ class MapLayer {
         var coordinate = CLLocationCoordinate2D()
         geocoder.geocodeAddressString(name) { (response, error) in
             if error != nil {
-                print(error?.localizedDescription)
+                print(error?.localizedDescription as Any)
             }
             
             if response != nil {

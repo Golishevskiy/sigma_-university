@@ -15,9 +15,7 @@ class MapViewController: UIViewController {
     private var startPoint = CLLocationCoordinate2D()
     private let locationManager: CLLocationManager = CLLocationManager()
     var searchName: String?
-    
-    //    let mapLayer = MapLayer.shared
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         setUserLocation()
@@ -50,11 +48,14 @@ class MapViewController: UIViewController {
         }
 
         // zoom
-        let c1 = CLLocation(latitude: startP.latitude, longitude: startP.longitude)
-        let c2 = CLLocation(latitude: endP.latitude, longitude: endP.longitude)
-        let zoom = c1.distance(from: c2)
-        let location = CLLocationCoordinate2D(latitude: (startP.latitude+endP.latitude)*0.5, longitude: (startP.longitude+endP.longitude)*0.5)
-        let region = MKCoordinateRegion(center: location, latitudinalMeters: zoom, longitudinalMeters: zoom + zoom*0.2)
+        let first = CLLocation(latitude: startP.latitude, longitude: startP.longitude)
+        let second = CLLocation(latitude: endP.latitude, longitude: endP.longitude)
+        let zoom = first.distance(from: second)
+        let location = CLLocationCoordinate2D(latitude: (startP.latitude + endP.latitude) * 0.5,
+                                              longitude: (startP.longitude + endP.longitude) * 0.5)
+        let region = MKCoordinateRegion(center: location,
+                                        latitudinalMeters: zoom,
+                                        longitudinalMeters: zoom + zoom * 0.2)
         mapView.setRegion(region, animated: true)
     }
     

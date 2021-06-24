@@ -15,90 +15,106 @@ class ViewController: UIViewController {
     let db = DBLayer.shared
     let transform = PrepareData.shared
     private var selectedBank: Bank?
+    private var select = 0
     let statusView = StatusView()
     
     var banks = [Bank]() {
         didSet {
             tableView.reloadData()
-            //            db.save(banks: banks)
         }
     }
     
-    //    var exchangers = [Exchanger]() {
-    //        didSet {
-    //            prepareData()
-    //            db.save(banks: banks)
-    //        }
-    //    }
+    var localBanks = [Bank]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presentOnboarding()
         statusView.setupView(superView: view)
         tableView.register(UINib(nibName: "BankCell", bundle: nil), forCellReuseIdentifier: "cell")
         fetchData()
-        
-        //        let res = db.fetchRepos()
-        //        db.delete()
     }
     
-    func fetchData() {
+    private func fetchData() {
         statusView.present = true
         if Reachability.isConnectedToNetwork() {
             print("Internet Connection Available!")
             network.getData { [weak self] (banks) in
-                self?.banks = banks
-                self?.statusView.present = false
-                self?.db.delete()
-                self?.db.save(banks: banks)
+                guard let self = self else { return }
+                self.banks = banks.sorted { $0.name.lowercased() < $1.name.lowercased() }
+                self.statusView.present = false
+                let dbBanks = self.db.fetchRepos()
+                self.localBanks = self.transform.prepare(dbBanks: dbBanks).sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
+                self.db.delete()
+                self.db.save(banks: banks)
                 
             }
         } else {
             print("Internet Connection not Available!")
             let dbBanks = db.fetchRepos()
-            self.banks = transform.prepare(dbBanks: dbBanks)
+            self.localBanks = transform.prepare(dbBanks: dbBanks).sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
             self.statusView.present = false
         }
     }
-    
-    //    private func prepareData() {
-    //        for bank in exchangers {
-    //            banks.append(transform.prepare(bankServer: bank))
-    //        }
-    //    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return banks.count
+        if banks.isEmpty {
+            return localBanks.count
+        } else {
+            return banks.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! BankCell
-        cell.fillIn(bank: banks[indexPath.row])
-        cell.actionClosure = { [weak self] (tag) in
-            guard let self = self else { return }
-            switch tag {
-            case 0:
-                self.router.toSafary(link: self.banks[indexPath.row].webSite)
-            case 1:
-                self.router.toMap(address: self.banks[indexPath.row].city + " " + self.banks[indexPath.row].street, navigation: self.navigationController)
-            case 2:
-                self.router.toCall(number: self.banks[indexPath.row].phone)
-            default:
-                print("default")
+        
+        if banks.isEmpty {
+            cell.fillIn(bank: localBanks[indexPath.row])
+            cell.actionClosure = { (tag) in
+                if tag == 2 {
+                    self.router.toCall(number: self.localBanks[indexPath.row].phone)
+                }
+            }
+        } else {
+            cell.fillIn(bank: banks[indexPath.row])
+            cell.actionClosure = { [weak self] (tag) in
+                guard let self = self else { return }
+                switch tag {
+                case 0:
+                    self.router.toSafari(link: self.banks[indexPath.row].webSite)
+                case 1:
+                    self.router.toMap(address: self.banks[indexPath.row].city + " " + self.banks[indexPath.row].street, navigation: self.navigationController)
+                case 2:
+                    self.router.toCall(number: self.banks[indexPath.row].phone)
+                default:
+                    print("default")
+                }
             }
         }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.selectedBank = banks[indexPath.row]
+        self.select = indexPath.row
         performSegue(withIdentifier: "showDetail", sender: nil)
-        print("\(banks[indexPath.row].name)")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let passing = segue.destination as! DetailViewController
-        passing.bank = selectedBank
+        let detail = segue.destination as! DetailViewController
+        if banks.isEmpty {
+            detail.localBank = localBanks[select]
+        } else {
+            detail.bank = banks[select]
+            detail.localBank = localBanks[select]
+        }
     }
 }
+
+
+

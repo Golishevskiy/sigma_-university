@@ -82,7 +82,6 @@ class DBLayer {
             }
         }
         
-        
         do {
             try self.context.save()
         } catch {
